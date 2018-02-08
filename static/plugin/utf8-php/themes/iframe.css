@@ -1,0 +1,707 @@
+/** 可以在这里添加你自己的css */
+img {  max-width: 100%;  display: block;  margin-left: auto;  margin-right: auto;  }
+[class*="list-cn-"], #my-frame-text [class*="list-num-"] {
+  position: relative;
+}
+[class*="list-cn-"]:before, #my-frame-text [class*="list-num-"]:before {
+  content: '一';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.view {
+  padding:0;word-wrap:break-word;cursor:text;height:90%;
+}
+p {
+  margin:5px 0;
+}
+table.sortEnabled tr.firstRow th,
+table.sortEnabled tr.firstRow td {
+  padding-right:20px;background-repeat: no-repeat;background-position: center right;
+  background-image:url(/static/utf8-php/themes/default/images/sortable.png);
+}
+.selectTdClass{background-color:#edf5fa !important}
+table.noBorderTable td,
+table.noBorderTable th,
+table.noBorderTable caption{
+  border:1px dashed #ddd !important
+}
+table{
+  margin-bottom:10px;border-collapse:collapse;display:table;
+}
+table td, table th {
+  padding: 5px 10px;border: 1px solid #DDD;
+}
+caption{border:1px dashed #DDD;border-bottom:0;padding:3px;text-align:center;}
+th{border-top:1px solid #BBB;background-color:#F7F7F7;}
+table tr.firstRow th{border-top-width:2px;}
+/*
+!
+
+
+
+
+.ue-table-interlace-color-single{ background-color: #fcfcfc; }
+.ue-table-interlace-color-double{ background-color: #f7faff; }
+td p{margin:0;padding:0;}
+ol,ul{margin:0;pading:0;width:95%}
+li{clear:both;}
+!* *!
+ol.custom_cn{list-style:none;}ol.custom_cn li{background-position:0 3px;background-repeat:no-repeat}
+li.list-cn-paddingleft-1{padding-left:25px}
+li.list-cn-paddingleft-2{padding-left:40px}
+li.list-cn-paddingleft-3{padding-left:55px}
+!**!
+ol.custom_cn1{list-style:none;}
+ol.custom_cn1 li{background-position:0 3px;background-repeat:no-repeat}
+li.list-cn1-paddingleft-1{padding-left:30px}
+li.list-cn1-paddingleft-2{padding-left:40px}
+li.list-cn1-paddingleft-3{padding-left:55px}
+!* *!
+ol.custom_cn2{list-style:none;}ol.custom_cn2 li{background-position:0 3px;background-repeat:no-repeat}
+li.list-cn2-paddingleft-1{padding-left:40px}
+li.list-cn2-paddingleft-2{padding-left:55px}
+li.list-cn2-paddingleft-3{padding-left:68px}
+!* *!
+ol.custom_num{list-style:none;}ol.custom_num li{background-position:0 3px;background-repeat:no-repeat}
+li.list-num-paddingleft-1{padding-left:25px}
+!* *!
+ol.custom_num1{list-style:none;}ol.custom_num1 li{background-position:0 3px;background-repeat:no-repeat}
+li.list-num1-paddingleft-1{padding-left:25px}
+!*
+
+*!
+ol.custom_num2{list-style:none;}
+ol.custom_num2 li{background-position:0 3px;background-repeat:no-repeat}
+li.list-num2-paddingleft-1{padding-left:35px}
+li.list-num2-paddingleft-2{padding-left:40px}
+li.list-dash{background-image:url(http://bs.baidu.com/listicon/dash.gif)}
+ul.custom_dash{list-style:none;}
+ul.custom_dash li{background-position:0 3px;background-repeat:no-repeat}
+li.list-dash-paddingleft{padding-left:35px}
+li.list-dot{background-image:url(http://bs.baidu.com/listicon/dot.gif)}
+ul.custom_dot{list-style:none;}
+ul.custom_dot li{background-position:0 3px;background-repeat:no-repeat}
+li.list-dot-paddingleft{padding-left:20px}
+.list-paddingleft-1{padding-left:0}
+.list-paddingleft-2{padding-left:30px}
+.list-paddingleft-3{padding-left:60px}
+.pagebreak{display:block;clear:both !important;cursor:default !important;width: 100% !important;margin:0;}
+pre{margin:.5em 0;padding:.4em .6em;border-radius:8px;background:#f8f8f8;}
+.loadingclass{display:inline-block;cursor:default;
+  background: url('/static/utf8-php/themes/default/images/loading.gif') no-repeat center center transparent;
+  border:1px solid #cccccc;margin-left:1px;height: 22px;width: 22px;
+}
+.loaderrorclass{display:inline-block;cursor:default;
+  background: url('/static/utf8-php/themes/default/images/loaderror.png') no-repeat center center transparent;
+  border:1px solid #cccccc;margin-right:1px;height: 22px;width: 22px;
+}
+.anchorclass{background: url('/static/utf8-php/themes/default/images/anchor.gif') no-repeat scroll left center transparent;
+  cursor: auto;display: inline-block;height: 16px;width: 15px;
+}
+body{background-color:#ffffff; background-image:; background-repeat:repeat; background-position:0% 0%; height:92px; }
+img {max-width:100%;display:block;margin-left:auto;margin-right:auto;}
+*/
+
+li.list-cn-1-1:before {content: '一'}
+li.list-cn-1-2:before {content: '二'}
+li.list-cn-1-3:before {content: '三'}
+li.list-cn-1-4:before {content: '四'}
+li.list-cn-1-5:before {content: '五'}
+li.list-cn-1-6:before {content: '六'}
+li.list-cn-1-7:before {content: '七'}
+li.list-cn-1-8:before {content: '八'}
+li.list-cn-1-9:before {content: '九'}
+li.list-cn-1-10:before {content: '十'}
+li.list-cn-1-11:before {content: '十一'}
+li.list-cn-1-12:before {content: '十二'}
+li.list-cn-1-13:before {content: '十三'}
+li.list-cn-1-14:before {content: '十四'}
+li.list-cn-1-15:before {content: '十五'}
+li.list-cn-1-16:before {content: '十六'}
+li.list-cn-1-17:before {content: '十七'}
+li.list-cn-1-18:before {content: '十八'}
+li.list-cn-1-19:before {content: '十九'}
+li.list-cn-1-20:before {content: '二十'}
+li.list-cn-1-21:before {content: '二十一'}
+li.list-cn-1-22:before {content: '二十二'}
+li.list-cn-1-23:before {content: '二十三'}
+li.list-cn-1-24:before {content: '二十四'}
+li.list-cn-1-25:before {content: '二十五'}
+li.list-cn-1-26:before {content: '二十六'}
+li.list-cn-1-27:before {content: '二十七'}
+li.list-cn-1-28:before {content: '二十八'}
+li.list-cn-1-29:before {content: '二十九'}
+li.list-cn-1-30:before {content: '三十'}
+li.list-cn-1-31:before {content: '三十一'}
+li.list-cn-1-32:before {content: '三十二'}
+li.list-cn-1-33:before {content: '三十三'}
+li.list-cn-1-34:before {content: '三十四'}
+li.list-cn-1-35:before {content: '三十五'}
+li.list-cn-1-36:before {content: '三十六'}
+li.list-cn-1-37:before {content: '三十七'}
+li.list-cn-1-38:before {content: '三十八'}
+li.list-cn-1-39:before {content: '三十九'}
+li.list-cn-1-40:before {content: '四十'}
+li.list-cn-1-41:before {content: '四十一'}
+li.list-cn-1-42:before {content: '四十二'}
+li.list-cn-1-43:before {content: '四十三'}
+li.list-cn-1-44:before {content: '四十四'}
+li.list-cn-1-45:before {content: '四十五'}
+li.list-cn-1-46:before {content: '四十六'}
+li.list-cn-1-47:before {content: '四十七'}
+li.list-cn-1-48:before {content: '四十八'}
+li.list-cn-1-49:before {content: '四十九'}
+li.list-cn-1-50:before {content: '五十'}
+li.list-cn-1-51:before {content: '五十一'}
+li.list-cn-1-52:before {content: '五十二'}
+li.list-cn-1-53:before {content: '五十三'}
+li.list-cn-1-54:before {content: '五十四'}
+li.list-cn-1-55:before {content: '五十五'}
+li.list-cn-1-56:before {content: '五十六'}
+li.list-cn-1-57:before {content: '五十七'}
+li.list-cn-1-58:before {content: '五十八'}
+li.list-cn-1-59:before {content: '五十九'}
+li.list-cn-1-60:before {content: '六十'}
+li.list-cn-1-61:before {content: '六十一'}
+li.list-cn-1-62:before {content: '六十二'}
+li.list-cn-1-63:before {content: '六十三'}
+li.list-cn-1-64:before {content: '六十四'}
+li.list-cn-1-65:before {content: '六十五'}
+li.list-cn-1-66:before {content: '六十六'}
+li.list-cn-1-67:before {content: '六十七'}
+li.list-cn-1-68:before {content: '六十八'}
+li.list-cn-1-69:before {content: '六十九'}
+li.list-cn-1-70:before {content: '七十'}
+li.list-cn-1-71:before {content: '七十一'}
+li.list-cn-1-72:before {content: '七十二'}
+li.list-cn-1-73:before {content: '七十三'}
+li.list-cn-1-74:before {content: '七十四'}
+li.list-cn-1-75:before {content: '七十五'}
+li.list-cn-1-76:before {content: '七十六'}
+li.list-cn-1-77:before {content: '七十七'}
+li.list-cn-1-78:before {content: '七十八'}
+li.list-cn-1-79:before {content: '七十九'}
+li.list-cn-1-80:before {content: '八十'}
+li.list-cn-1-81:before {content: '八十一'}
+li.list-cn-1-82:before {content: '八十二'}
+li.list-cn-1-83:before {content: '八十三'}
+li.list-cn-1-84:before {content: '八十四'}
+li.list-cn-1-85:before {content: '八十五'}
+li.list-cn-1-86:before {content: '八十六'}
+li.list-cn-1-87:before {content: '八十七'}
+li.list-cn-1-88:before {content: '八十八'}
+li.list-cn-1-89:before {content: '八十九'}
+li.list-cn-1-90:before {content: '九十'}
+li.list-cn-1-91:before {content: '九十一'}
+li.list-cn-1-92:before {content: '九十二'}
+li.list-cn-1-93:before {content: '九十三'}
+li.list-cn-1-94:before {content: '九十四'}
+li.list-cn-1-95:before {content: '九十五'}
+li.list-cn-1-96:before {content: '九十六'}
+li.list-cn-1-97:before {content: '九十七'}
+li.list-cn-1-98:before {content: '九十八'}
+
+
+li.list-cn-2-1:before {content: '一）'}
+li.list-cn-2-2:before {content: '二）'}
+li.list-cn-2-3:before {content: '三）'}
+li.list-cn-2-4:before {content: '四）'}
+li.list-cn-2-5:before {content: '五）'}
+li.list-cn-2-6:before {content: '六）'}
+li.list-cn-2-7:before {content: '七）'}
+li.list-cn-2-8:before {content: '八）'}
+li.list-cn-2-9:before {content: '九）'}
+li.list-cn-2-10:before {content: '十）'}
+li.list-cn-2-11:before {content: '十一）'}
+li.list-cn-2-12:before {content: '十二）'}
+li.list-cn-2-13:before {content: '十三）'}
+li.list-cn-2-14:before {content: '十四）'}
+li.list-cn-2-15:before {content: '十五）'}
+li.list-cn-2-16:before {content: '十六）'}
+li.list-cn-2-17:before {content: '十七）'}
+li.list-cn-2-18:before {content: '十八）'}
+li.list-cn-2-19:before {content: '十九）'}
+li.list-cn-2-20:before {content: '二十）'}
+li.list-cn-2-21:before {content: '二十一）'}
+li.list-cn-2-22:before {content: '二十二）'}
+li.list-cn-2-23:before {content: '二十三）'}
+li.list-cn-2-24:before {content: '二十四）'}
+li.list-cn-2-25:before {content: '二十五）'}
+li.list-cn-2-26:before {content: '二十六）'}
+li.list-cn-2-27:before {content: '二十七）'}
+li.list-cn-2-28:before {content: '二十八）'}
+li.list-cn-2-29:before {content: '二十九）'}
+li.list-cn-2-30:before {content: '三十）'}
+li.list-cn-2-31:before {content: '三十一）'}
+li.list-cn-2-32:before {content: '三十二）'}
+li.list-cn-2-33:before {content: '三十三）'}
+li.list-cn-2-34:before {content: '三十四）'}
+li.list-cn-2-35:before {content: '三十五）'}
+li.list-cn-2-36:before {content: '三十六）'}
+li.list-cn-2-37:before {content: '三十七）'}
+li.list-cn-2-38:before {content: '三十八）'}
+li.list-cn-2-39:before {content: '三十九）'}
+li.list-cn-2-40:before {content: '四十）'}
+li.list-cn-2-41:before {content: '四十一）'}
+li.list-cn-2-42:before {content: '四十二）'}
+li.list-cn-2-43:before {content: '四十三）'}
+li.list-cn-2-44:before {content: '四十四）'}
+li.list-cn-2-45:before {content: '四十五）'}
+li.list-cn-2-46:before {content: '四十六）'}
+li.list-cn-2-47:before {content: '四十七）'}
+li.list-cn-2-48:before {content: '四十八）'}
+li.list-cn-2-49:before {content: '四十九）'}
+li.list-cn-2-50:before {content: '五十）'}
+li.list-cn-2-51:before {content: '五十一）'}
+li.list-cn-2-52:before {content: '五十二）'}
+li.list-cn-2-53:before {content: '五十三）'}
+li.list-cn-2-54:before {content: '五十四）'}
+li.list-cn-2-55:before {content: '五十五）'}
+li.list-cn-2-56:before {content: '五十六）'}
+li.list-cn-2-57:before {content: '五十七）'}
+li.list-cn-2-58:before {content: '五十八）'}
+li.list-cn-2-59:before {content: '五十九）'}
+li.list-cn-2-60:before {content: '六十）'}
+li.list-cn-2-61:before {content: '六十一）'}
+li.list-cn-2-62:before {content: '六十二）'}
+li.list-cn-2-63:before {content: '六十三）'}
+li.list-cn-2-64:before {content: '六十四）'}
+li.list-cn-2-65:before {content: '六十五）'}
+li.list-cn-2-66:before {content: '六十六）'}
+li.list-cn-2-67:before {content: '六十七）'}
+li.list-cn-2-68:before {content: '六十八）'}
+li.list-cn-2-69:before {content: '六十九）'}
+li.list-cn-2-70:before {content: '七十）'}
+li.list-cn-2-71:before {content: '七十一）'}
+li.list-cn-2-72:before {content: '七十二）'}
+li.list-cn-2-73:before {content: '七十三）'}
+li.list-cn-2-74:before {content: '七十四）'}
+li.list-cn-2-75:before {content: '七十五）'}
+li.list-cn-2-76:before {content: '七十六）'}
+li.list-cn-2-77:before {content: '七十七）'}
+li.list-cn-2-78:before {content: '七十八）'}
+li.list-cn-2-79:before {content: '七十九）'}
+li.list-cn-2-80:before {content: '八十）'}
+li.list-cn-2-81:before {content: '八十一）'}
+li.list-cn-2-82:before {content: '八十二）'}
+li.list-cn-2-83:before {content: '八十三）'}
+li.list-cn-2-84:before {content: '八十四）'}
+li.list-cn-2-85:before {content: '八十五）'}
+li.list-cn-2-86:before {content: '八十六）'}
+li.list-cn-2-87:before {content: '八十七）'}
+li.list-cn-2-88:before {content: '八十八）'}
+li.list-cn-2-89:before {content: '八十九）'}
+li.list-cn-2-90:before {content: '九十）'}
+li.list-cn-2-91:before {content: '九十一）'}
+li.list-cn-2-92:before {content: '九十二）'}
+li.list-cn-2-93:before {content: '九十三）'}
+li.list-cn-2-94:before {content: '九十四）'}
+li.list-cn-2-95:before {content: '九十五）'}
+li.list-cn-2-96:before {content: '九十六）'}
+li.list-cn-2-97:before {content: '九十七）'}
+li.list-cn-2-98:before {content: '九十八）'}
+
+li.list-cn-3-1:before {content: '（一）'}
+li.list-cn-3-2:before {content: '（二）'}
+li.list-cn-3-3:before {content: '（三）'}
+li.list-cn-3-4:before {content: '（四）'}
+li.list-cn-3-5:before {content: '（五）'}
+li.list-cn-3-6:before {content: '（六）'}
+li.list-cn-3-7:before {content: '（七）'}
+li.list-cn-3-8:before {content: '（八）'}
+li.list-cn-3-9:before {content: '（九）'}
+li.list-cn-3-10:before {content: '（十）'}
+li.list-cn-3-11:before {content: '（十一）'}
+li.list-cn-3-12:before {content: '（十二）'}
+li.list-cn-3-13:before {content: '（十三）'}
+li.list-cn-3-14:before {content: '（十四）'}
+li.list-cn-3-15:before {content: '（十五）'}
+li.list-cn-3-16:before {content: '（十六）'}
+li.list-cn-3-17:before {content: '（十七）'}
+li.list-cn-3-18:before {content: '（十八）'}
+li.list-cn-3-19:before {content: '（十九）'}
+li.list-cn-3-20:before {content: '（二十）'}
+li.list-cn-3-21:before {content: '（二十一）'}
+li.list-cn-3-22:before {content: '（二十二）'}
+li.list-cn-3-23:before {content: '（二十三）'}
+li.list-cn-3-24:before {content: '（二十四）'}
+li.list-cn-3-25:before {content: '（二十五）'}
+li.list-cn-3-26:before {content: '（二十六）'}
+li.list-cn-3-27:before {content: '（二十七）'}
+li.list-cn-3-28:before {content: '（二十八）'}
+li.list-cn-3-29:before {content: '（二十九）'}
+li.list-cn-3-30:before {content: '（三十）'}
+li.list-cn-3-31:before {content: '（三十一）'}
+li.list-cn-3-32:before {content: '（三十二）'}
+li.list-cn-3-33:before {content: '（三十三）'}
+li.list-cn-3-34:before {content: '（三十四）'}
+li.list-cn-3-35:before {content: '（三十五）'}
+li.list-cn-3-36:before {content: '（三十六）'}
+li.list-cn-3-37:before {content: '（三十七）'}
+li.list-cn-3-38:before {content: '（三十八）'}
+li.list-cn-3-39:before {content: '（三十九）'}
+li.list-cn-3-40:before {content: '（四十）'}
+li.list-cn-3-41:before {content: '（四十一）'}
+li.list-cn-3-42:before {content: '（四十二）'}
+li.list-cn-3-43:before {content: '（四十三）'}
+li.list-cn-3-44:before {content: '（四十四）'}
+li.list-cn-3-45:before {content: '（四十五）'}
+li.list-cn-3-46:before {content: '（四十六）'}
+li.list-cn-3-47:before {content: '（四十七）'}
+li.list-cn-3-48:before {content: '（四十八）'}
+li.list-cn-3-49:before {content: '（四十九）'}
+li.list-cn-3-50:before {content: '（五十）'}
+li.list-cn-3-51:before {content: '（五十一）'}
+li.list-cn-3-52:before {content: '（五十二）'}
+li.list-cn-3-53:before {content: '（五十三）'}
+li.list-cn-3-54:before {content: '（五十四）'}
+li.list-cn-3-55:before {content: '（五十五）'}
+li.list-cn-3-56:before {content: '（五十六）'}
+li.list-cn-3-57:before {content: '（五十七）'}
+li.list-cn-3-58:before {content: '（五十八）'}
+li.list-cn-3-59:before {content: '（五十九）'}
+li.list-cn-3-60:before {content: '（六十）'}
+li.list-cn-3-61:before {content: '（六十一）'}
+li.list-cn-3-62:before {content: '（六十二）'}
+li.list-cn-3-63:before {content: '（六十三）'}
+li.list-cn-3-64:before {content: '（六十四）'}
+li.list-cn-3-65:before {content: '（六十五）'}
+li.list-cn-3-66:before {content: '（六十六）'}
+li.list-cn-3-67:before {content: '（六十七）'}
+li.list-cn-3-68:before {content: '（六十八）'}
+li.list-cn-3-69:before {content: '（六十九）'}
+li.list-cn-3-70:before {content: '（七十）'}
+li.list-cn-3-71:before {content: '（七十一）'}
+li.list-cn-3-72:before {content: '（七十二）'}
+li.list-cn-3-73:before {content: '（七十三）'}
+li.list-cn-3-74:before {content: '（七十四）'}
+li.list-cn-3-75:before {content: '（七十五）'}
+li.list-cn-3-76:before {content: '（七十六）'}
+li.list-cn-3-77:before {content: '（七十七）'}
+li.list-cn-3-78:before {content: '（七十八）'}
+li.list-cn-3-79:before {content: '（七十九）'}
+li.list-cn-3-80:before {content: '（八十）'}
+li.list-cn-3-81:before {content: '（八十一）'}
+li.list-cn-3-82:before {content: '（八十二）'}
+li.list-cn-3-83:before {content: '（八十三）'}
+li.list-cn-3-84:before {content: '（八十四）'}
+li.list-cn-3-85:before {content: '（八十五）'}
+li.list-cn-3-86:before {content: '（八十六）'}
+li.list-cn-3-87:before {content: '（八十七）'}
+li.list-cn-3-88:before {content: '（八十八）'}
+li.list-cn-3-89:before {content: '（八十九）'}
+li.list-cn-3-90:before {content: '（九十）'}
+li.list-cn-3-91:before {content: '（九十一）'}
+li.list-cn-3-92:before {content: '（九十二）'}
+li.list-cn-3-93:before {content: '（九十三）'}
+li.list-cn-3-94:before {content: '（九十四）'}
+li.list-cn-3-95:before {content: '（九十五）'}
+li.list-cn-3-96:before {content: '（九十六）'}
+li.list-cn-3-97:before {content: '（九十七）'}
+li.list-cn-3-98:before {content: '（九十八）'}
+
+
+
+
+li.list-num-1-1:before {content: '1'}
+li.list-num-1-2:before {content: '2'}
+li.list-num-1-3:before {content: '3'}
+li.list-num-1-4:before {content: '4'}
+li.list-num-1-5:before {content: '5'}
+li.list-num-1-6:before {content: '6'}
+li.list-num-1-7:before {content: '7'}
+li.list-num-1-8:before {content: '8'}
+li.list-num-1-9:before {content: '9'}
+li.list-num-1-10:before {content: '10'}
+li.list-num-1-11:before {content: '11'}
+li.list-num-1-12:before {content: '12'}
+li.list-num-1-13:before {content: '13'}
+li.list-num-1-14:before {content: '14'}
+li.list-num-1-15:before {content: '15'}
+li.list-num-1-16:before {content: '16'}
+li.list-num-1-17:before {content: '17'}
+li.list-num-1-18:before {content: '18'}
+li.list-num-1-19:before {content: '19'}
+li.list-num-1-20:before {content: '20'}
+li.list-num-1-21:before {content: '21'}
+li.list-num-1-22:before {content: '22'}
+li.list-num-1-23:before {content: '23'}
+li.list-num-1-24:before {content: '24'}
+li.list-num-1-25:before {content: '25'}
+li.list-num-1-26:before {content: '26'}
+li.list-num-1-27:before {content: '27'}
+li.list-num-1-28:before {content: '28'}
+li.list-num-1-29:before {content: '29'}
+li.list-num-1-30:before {content: '30'}
+li.list-num-1-31:before {content: '31'}
+li.list-num-1-32:before {content: '32'}
+li.list-num-1-33:before {content: '33'}
+li.list-num-1-34:before {content: '34'}
+li.list-num-1-35:before {content: '35'}
+li.list-num-1-36:before {content: '36'}
+li.list-num-1-37:before {content: '37'}
+li.list-num-1-38:before {content: '38'}
+li.list-num-1-39:before {content: '39'}
+li.list-num-1-40:before {content: '40'}
+li.list-num-1-41:before {content: '41'}
+li.list-num-1-42:before {content: '42'}
+li.list-num-1-43:before {content: '43'}
+li.list-num-1-44:before {content: '44'}
+li.list-num-1-45:before {content: '45'}
+li.list-num-1-46:before {content: '46'}
+li.list-num-1-47:before {content: '47'}
+li.list-num-1-48:before {content: '48'}
+li.list-num-1-49:before {content: '49'}
+li.list-num-1-50:before {content: '50'}
+li.list-num-1-51:before {content: '51'}
+li.list-num-1-52:before {content: '52'}
+li.list-num-1-53:before {content: '53'}
+li.list-num-1-54:before {content: '54'}
+li.list-num-1-55:before {content: '55'}
+li.list-num-1-56:before {content: '56'}
+li.list-num-1-57:before {content: '57'}
+li.list-num-1-58:before {content: '58'}
+li.list-num-1-59:before {content: '59'}
+li.list-num-1-60:before {content: '60'}
+li.list-num-1-61:before {content: '61'}
+li.list-num-1-62:before {content: '62'}
+li.list-num-1-63:before {content: '63'}
+li.list-num-1-64:before {content: '64'}
+li.list-num-1-65:before {content: '65'}
+li.list-num-1-66:before {content: '66'}
+li.list-num-1-67:before {content: '67'}
+li.list-num-1-68:before {content: '68'}
+li.list-num-1-69:before {content: '69'}
+li.list-num-1-70:before {content: '70'}
+li.list-num-1-71:before {content: '71'}
+li.list-num-1-72:before {content: '72'}
+li.list-num-1-73:before {content: '73'}
+li.list-num-1-74:before {content: '74'}
+li.list-num-1-75:before {content: '75'}
+li.list-num-1-76:before {content: '76'}
+li.list-num-1-77:before {content: '77'}
+li.list-num-1-78:before {content: '78'}
+li.list-num-1-79:before {content: '79'}
+li.list-num-1-80:before {content: '80'}
+li.list-num-1-81:before {content: '81'}
+li.list-num-1-82:before {content: '82'}
+li.list-num-1-83:before {content: '83'}
+li.list-num-1-84:before {content: '84'}
+li.list-num-1-85:before {content: '85'}
+li.list-num-1-86:before {content: '86'}
+li.list-num-1-87:before {content: '87'}
+li.list-num-1-88:before {content: '88'}
+li.list-num-1-89:before {content: '89'}
+li.list-num-1-90:before {content: '90'}
+li.list-num-1-91:before {content: '91'}
+li.list-num-1-92:before {content: '92'}
+li.list-num-1-93:before {content: '93'}
+li.list-num-1-94:before {content: '94'}
+li.list-num-1-95:before {content: '95'}
+li.list-num-1-96:before {content: '96'}
+li.list-num-1-97:before {content: '97'}
+li.list-num-1-98:before {content: '98'}
+
+
+
+li.list-num-2-1:before {content: '1）'}
+li.list-num-2-2:before {content: '2）'}
+li.list-num-2-3:before {content: '3）'}
+li.list-num-2-4:before {content: '4）'}
+li.list-num-2-5:before {content: '5）'}
+li.list-num-2-6:before {content: '6）'}
+li.list-num-2-7:before {content: '7）'}
+li.list-num-2-8:before {content: '8）'}
+li.list-num-2-9:before {content: '9）'}
+li.list-num-2-10:before {content: '10）'}
+li.list-num-2-11:before {content: '11）'}
+li.list-num-2-12:before {content: '12）'}
+li.list-num-2-13:before {content: '13）'}
+li.list-num-2-14:before {content: '14）'}
+li.list-num-2-15:before {content: '15）'}
+li.list-num-2-16:before {content: '16）'}
+li.list-num-2-17:before {content: '17）'}
+li.list-num-2-18:before {content: '18）'}
+li.list-num-2-19:before {content: '19）'}
+li.list-num-2-20:before {content: '20）'}
+li.list-num-2-21:before {content: '21）'}
+li.list-num-2-22:before {content: '22）'}
+li.list-num-2-23:before {content: '23）'}
+li.list-num-2-24:before {content: '24）'}
+li.list-num-2-25:before {content: '25）'}
+li.list-num-2-26:before {content: '26）'}
+li.list-num-2-27:before {content: '27）'}
+li.list-num-2-28:before {content: '28）'}
+li.list-num-2-29:before {content: '29）'}
+li.list-num-2-30:before {content: '30）'}
+li.list-num-2-31:before {content: '31）'}
+li.list-num-2-32:before {content: '32）'}
+li.list-num-2-33:before {content: '33）'}
+li.list-num-2-34:before {content: '34）'}
+li.list-num-2-35:before {content: '35）'}
+li.list-num-2-36:before {content: '36）'}
+li.list-num-2-37:before {content: '37）'}
+li.list-num-2-38:before {content: '38）'}
+li.list-num-2-39:before {content: '39）'}
+li.list-num-2-40:before {content: '40）'}
+li.list-num-2-41:before {content: '41）'}
+li.list-num-2-42:before {content: '42）'}
+li.list-num-2-43:before {content: '43）'}
+li.list-num-2-44:before {content: '44）'}
+li.list-num-2-45:before {content: '45）'}
+li.list-num-2-46:before {content: '46）'}
+li.list-num-2-47:before {content: '47）'}
+li.list-num-2-48:before {content: '48）'}
+li.list-num-2-49:before {content: '49）'}
+li.list-num-2-50:before {content: '50）'}
+li.list-num-2-51:before {content: '51）'}
+li.list-num-2-52:before {content: '52）'}
+li.list-num-2-53:before {content: '53）'}
+li.list-num-2-54:before {content: '54）'}
+li.list-num-2-55:before {content: '55）'}
+li.list-num-2-56:before {content: '56）'}
+li.list-num-2-57:before {content: '57）'}
+li.list-num-2-58:before {content: '58）'}
+li.list-num-2-59:before {content: '59）'}
+li.list-num-2-60:before {content: '60）'}
+li.list-num-2-61:before {content: '61）'}
+li.list-num-2-62:before {content: '62）'}
+li.list-num-2-63:before {content: '63）'}
+li.list-num-2-64:before {content: '64）'}
+li.list-num-2-65:before {content: '65）'}
+li.list-num-2-66:before {content: '66）'}
+li.list-num-2-67:before {content: '67）'}
+li.list-num-2-68:before {content: '68）'}
+li.list-num-2-69:before {content: '69）'}
+li.list-num-2-70:before {content: '70）'}
+li.list-num-2-71:before {content: '71）'}
+li.list-num-2-72:before {content: '72）'}
+li.list-num-2-73:before {content: '73）'}
+li.list-num-2-74:before {content: '74）'}
+li.list-num-2-75:before {content: '75）'}
+li.list-num-2-76:before {content: '76）'}
+li.list-num-2-77:before {content: '77）'}
+li.list-num-2-78:before {content: '78）'}
+li.list-num-2-79:before {content: '79）'}
+li.list-num-2-80:before {content: '80）'}
+li.list-num-2-81:before {content: '81）'}
+li.list-num-2-82:before {content: '82）'}
+li.list-num-2-83:before {content: '83）'}
+li.list-num-2-84:before {content: '84）'}
+li.list-num-2-85:before {content: '85）'}
+li.list-num-2-86:before {content: '86）'}
+li.list-num-2-87:before {content: '87）'}
+li.list-num-2-88:before {content: '88）'}
+li.list-num-2-89:before {content: '89）'}
+li.list-num-2-90:before {content: '90）'}
+li.list-num-2-91:before {content: '91）'}
+li.list-num-2-92:before {content: '92）'}
+li.list-num-2-93:before {content: '93）'}
+li.list-num-2-94:before {content: '94）'}
+li.list-num-2-95:before {content: '95）'}
+li.list-num-2-96:before {content: '96）'}
+li.list-num-2-97:before {content: '97）'}
+li.list-num-2-98:before {content: '98）'}
+
+
+
+
+li.list-num-3-1:before {content: '（1）'}
+li.list-num-3-2:before {content: '（2）'}
+li.list-num-3-3:before {content: '（3）'}
+li.list-num-3-4:before {content: '（4）'}
+li.list-num-3-5:before {content: '（5）'}
+li.list-num-3-6:before {content: '（6）'}
+li.list-num-3-7:before {content: '（7）'}
+li.list-num-3-8:before {content: '（8）'}
+li.list-num-3-9:before {content: '（9）'}
+li.list-num-3-10:before {content: '（10）'}
+li.list-num-3-11:before {content: '（11）'}
+li.list-num-3-12:before {content: '（12）'}
+li.list-num-3-13:before {content: '（13）'}
+li.list-num-3-14:before {content: '（14）'}
+li.list-num-3-15:before {content: '（15）'}
+li.list-num-3-16:before {content: '（16）'}
+li.list-num-3-17:before {content: '（17）'}
+li.list-num-3-18:before {content: '（18）'}
+li.list-num-3-19:before {content: '（19）'}
+li.list-num-3-20:before {content: '（20）'}
+li.list-num-3-21:before {content: '（21）'}
+li.list-num-3-22:before {content: '（22）'}
+li.list-num-3-23:before {content: '（23）'}
+li.list-num-3-24:before {content: '（24）'}
+li.list-num-3-25:before {content: '（25）'}
+li.list-num-3-26:before {content: '（26）'}
+li.list-num-3-27:before {content: '（27）'}
+li.list-num-3-28:before {content: '（28）'}
+li.list-num-3-29:before {content: '（29）'}
+li.list-num-3-30:before {content: '（30）'}
+li.list-num-3-31:before {content: '（31）'}
+li.list-num-3-32:before {content: '（32）'}
+li.list-num-3-33:before {content: '（33）'}
+li.list-num-3-34:before {content: '（34）'}
+li.list-num-3-35:before {content: '（35）'}
+li.list-num-3-36:before {content: '（36）'}
+li.list-num-3-37:before {content: '（37）'}
+li.list-num-3-38:before {content: '（38）'}
+li.list-num-3-39:before {content: '（39）'}
+li.list-num-3-40:before {content: '（40）'}
+li.list-num-3-41:before {content: '（41）'}
+li.list-num-3-42:before {content: '（42）'}
+li.list-num-3-43:before {content: '（43）'}
+li.list-num-3-44:before {content: '（44）'}
+li.list-num-3-45:before {content: '（45）'}
+li.list-num-3-46:before {content: '（46）'}
+li.list-num-3-47:before {content: '（47）'}
+li.list-num-3-48:before {content: '（48）'}
+li.list-num-3-49:before {content: '（49）'}
+li.list-num-3-50:before {content: '（50）'}
+li.list-num-3-51:before {content: '（51）'}
+li.list-num-3-52:before {content: '（52）'}
+li.list-num-3-53:before {content: '（53）'}
+li.list-num-3-54:before {content: '（54）'}
+li.list-num-3-55:before {content: '（55）'}
+li.list-num-3-56:before {content: '（56）'}
+li.list-num-3-57:before {content: '（57）'}
+li.list-num-3-58:before {content: '（58）'}
+li.list-num-3-59:before {content: '（59）'}
+li.list-num-3-60:before {content: '（60）'}
+li.list-num-3-61:before {content: '（61）'}
+li.list-num-3-62:before {content: '（62）'}
+li.list-num-3-63:before {content: '（63）'}
+li.list-num-3-64:before {content: '（64）'}
+li.list-num-3-65:before {content: '（65）'}
+li.list-num-3-66:before {content: '（66）'}
+li.list-num-3-67:before {content: '（67）'}
+li.list-num-3-68:before {content: '（68）'}
+li.list-num-3-69:before {content: '（69）'}
+li.list-num-3-70:before {content: '（70）'}
+li.list-num-3-71:before {content: '（71）'}
+li.list-num-3-72:before {content: '（72）'}
+li.list-num-3-73:before {content: '（73）'}
+li.list-num-3-74:before {content: '（74）'}
+li.list-num-3-75:before {content: '（75）'}
+li.list-num-3-76:before {content: '（76）'}
+li.list-num-3-77:before {content: '（77）'}
+li.list-num-3-78:before {content: '（78）'}
+li.list-num-3-79:before {content: '（79）'}
+li.list-num-3-80:before {content: '（80）'}
+li.list-num-3-81:before {content: '（81）'}
+li.list-num-3-82:before {content: '（82）'}
+li.list-num-3-83:before {content: '（83）'}
+li.list-num-3-84:before {content: '（84）'}
+li.list-num-3-85:before {content: '（85）'}
+li.list-num-3-86:before {content: '（86）'}
+li.list-num-3-87:before {content: '（87）'}
+li.list-num-3-88:before {content: '（88）'}
+li.list-num-3-89:before {content: '（89）'}
+li.list-num-3-90:before {content: '（90）'}
+li.list-num-3-91:before {content: '（91）'}
+li.list-num-3-92:before {content: '（92）'}
+li.list-num-3-93:before {content: '（93）'}
+li.list-num-3-94:before {content: '（94）'}
+li.list-num-3-95:before {content: '（95）'}
+li.list-num-3-96:before {content: '（96）'}
+li.list-num-3-97:before {content: '（97）'}
+li.list-num-3-98:before {content: '（98）'}

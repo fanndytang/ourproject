@@ -1,0 +1,26 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["> 1%", "last 2 versions", "not ie <= 8"]
+      }
+    }],
+    "stage-2"
+  ],
+  "ignore": [
+    "./src/assets/utf8-php/ueditor.all.min.js"
+  ],
+  "plugins": ["transform-runtime", ["component", [
+    {
+      "libraryName": "element-ui",
+      "styleLibraryName": "theme-chalk"
+    }
+  ]], "syntax-dynamic-import"],
+  "env": {
+    "test": {
+      "presets": ["env", "stage-2"],
+      "plugins": ["istanbul"]
+    }
+  }
+}

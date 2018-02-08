@@ -1,0 +1,1728 @@
+/*弹出对话框页面样式组件
+*/
+
+/*reset
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  font-size: 100%;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*module
+*/
+body {
+  background-color: #fff;
+  font: 12px/1.5 sans-serif, "宋体", "Arial Narrow", HELVETICA;
+  color: #646464;
+}
+
+/*tab*/
+.tabhead {
+  position: relative;
+  z-index: 10;
+}
+
+.tabhead span {
+  display: inline-block;
+  padding: 0 5px;
+  height: 30px;
+  border: 1px solid #ccc;
+  background: url("images/dialog-title-bg.png") repeat-x;
+  text-align: center;
+  line-height: 30px;
+  cursor: pointer;
+  *margin-right: 5px;
+}
+
+.tabhead span.focus {
+  height: 31px;
+  border-bottom: none;
+  background: #fff;
+}
+
+.tabbody {
+  position: relative;
+  top: -1px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+}
+
+/*button*/
+a.button {
+  display: block;
+  text-align: center;
+  line-height: 24px;
+  text-decoration: none;
+  height: 24px;
+  width: 95px;
+  border: 0;
+  color: #838383;
+  background: url(../../themes/default/images/icons-all.gif) no-repeat;
+}
+
+a.button:hover {
+  background-position: 0 -30px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+[class*="list-cn-"],  [class*="list-num-"] {
+  position: relative;
+}
+
+[class*="list-cn-"]:before,  [class*="list-num-"]:before {
+  content: '一';
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.view {
+  padding: 0;
+  word-wrap: break-word;
+  cursor: text;
+  height: 90%;
+}
+
+p {
+  margin: 5px 0;
+}
+
+table.sortEnabled tr.firstRow th,
+table.sortEnabled tr.firstRow td {
+  padding-right: 20px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url(/static/utf8-php/themes/default/images/sortable.png);
+}
+
+.selectTdClass {
+  background-color: #edf5fa !important
+}
+
+table.noBorderTable td,
+table.noBorderTable th,
+table.noBorderTable caption {
+  border: 1px dashed #ddd !important
+}
+
+table {
+  margin-bottom: 10px;
+  border-collapse: collapse;
+  display: table;
+}
+
+table td,  table th {
+  padding: 5px 10px;
+  border: 1px solid #DDD;
+}
+
+caption {
+  border: 1px dashed #DDD;
+  border-bottom: 0;
+  padding: 3px;
+  text-align: center;
+}
+
+th {
+  border-top: 1px solid #BBB;
+  background-color: #F7F7F7;
+}
+
+table tr.firstRow th {
+  border-top-width: 2px;
+}
+
+ img{max-width:100%;display:block;margin-left:auto;margin-right:auto;}
+ li[class*="list-cn-"], li[class*="list-num-"]{position: relative;}
+
+ li[class*="list-cn-"]:before, li[class*="list-num-"]:before{
+  content:'一';
+  position:absolute;
+  left:0;
+  top:0;
+}
+ li.list-cn-1-1:before {content: '一'}
+ li.list-cn-1-2:before {content: '二'}
+ li.list-cn-1-3:before {content: '三'}
+ li.list-cn-1-4:before {content: '四'}
+ li.list-cn-1-5:before {content: '五'}
+ li.list-cn-1-6:before {content: '六'}
+ li.list-cn-1-7:before {content: '七'}
+ li.list-cn-1-8:before {content: '八'}
+ li.list-cn-1-9:before {content: '九'}
+ li.list-cn-1-10:before {content: '十'}
+ li.list-cn-1-11:before {content: '十一'}
+ li.list-cn-1-12:before {content: '十二'}
+ li.list-cn-1-13:before {content: '十三'}
+ li.list-cn-1-14:before {content: '十四'}
+ li.list-cn-1-15:before {content: '十五'}
+ li.list-cn-1-16:before {content: '十六'}
+ li.list-cn-1-17:before {content: '十七'}
+ li.list-cn-1-18:before {content: '十八'}
+ li.list-cn-1-19:before {content: '十九'}
+ li.list-cn-1-20:before {content: '二十'}
+ li.list-cn-1-21:before {content: '二十一'}
+ li.list-cn-1-22:before {content: '二十二'}
+ li.list-cn-1-23:before {content: '二十三'}
+ li.list-cn-1-24:before {content: '二十四'}
+ li.list-cn-1-25:before {content: '二十五'}
+ li.list-cn-1-26:before {content: '二十六'}
+ li.list-cn-1-27:before {content: '二十七'}
+ li.list-cn-1-28:before {content: '二十八'}
+ li.list-cn-1-29:before {content: '二十九'}
+ li.list-cn-1-30:before {content: '三十'}
+ li.list-cn-1-31:before {content: '三十一'}
+ li.list-cn-1-32:before {content: '三十二'}
+ li.list-cn-1-33:before {content: '三十三'}
+ li.list-cn-1-34:before {content: '三十四'}
+ li.list-cn-1-35:before {content: '三十五'}
+ li.list-cn-1-36:before {content: '三十六'}
+ li.list-cn-1-37:before {content: '三十七'}
+ li.list-cn-1-38:before {content: '三十八'}
+ li.list-cn-1-39:before {content: '三十九'}
+ li.list-cn-1-40:before {content: '四十'}
+ li.list-cn-1-41:before {content: '四十一'}
+ li.list-cn-1-42:before {content: '四十二'}
+ li.list-cn-1-43:before {content: '四十三'}
+ li.list-cn-1-44:before {content: '四十四'}
+ li.list-cn-1-45:before {content: '四十五'}
+ li.list-cn-1-46:before {content: '四十六'}
+ li.list-cn-1-47:before {content: '四十七'}
+ li.list-cn-1-48:before {content: '四十八'}
+ li.list-cn-1-49:before {content: '四十九'}
+ li.list-cn-1-50:before {content: '五十'}
+ li.list-cn-1-51:before {content: '五十一'}
+ li.list-cn-1-52:before {content: '五十二'}
+ li.list-cn-1-53:before {content: '五十三'}
+ li.list-cn-1-54:before {content: '五十四'}
+ li.list-cn-1-55:before {content: '五十五'}
+ li.list-cn-1-56:before {content: '五十六'}
+ li.list-cn-1-57:before {content: '五十七'}
+ li.list-cn-1-58:before {content: '五十八'}
+ li.list-cn-1-59:before {content: '五十九'}
+ li.list-cn-1-60:before {content: '六十'}
+ li.list-cn-1-61:before {content: '六十一'}
+ li.list-cn-1-62:before {content: '六十二'}
+ li.list-cn-1-63:before {content: '六十三'}
+ li.list-cn-1-64:before {content: '六十四'}
+ li.list-cn-1-65:before {content: '六十五'}
+ li.list-cn-1-66:before {content: '六十六'}
+ li.list-cn-1-67:before {content: '六十七'}
+ li.list-cn-1-68:before {content: '六十八'}
+ li.list-cn-1-69:before {content: '六十九'}
+ li.list-cn-1-70:before {content: '七十'}
+ li.list-cn-1-71:before {content: '七十一'}
+ li.list-cn-1-72:before {content: '七十二'}
+ li.list-cn-1-73:before {content: '七十三'}
+ li.list-cn-1-74:before {content: '七十四'}
+ li.list-cn-1-75:before {content: '七十五'}
+ li.list-cn-1-76:before {content: '七十六'}
+ li.list-cn-1-77:before {content: '七十七'}
+ li.list-cn-1-78:before {content: '七十八'}
+ li.list-cn-1-79:before {content: '七十九'}
+ li.list-cn-1-80:before {content: '八十'}
+ li.list-cn-1-81:before {content: '八十一'}
+ li.list-cn-1-82:before {content: '八十二'}
+ li.list-cn-1-83:before {content: '八十三'}
+ li.list-cn-1-84:before {content: '八十四'}
+ li.list-cn-1-85:before {content: '八十五'}
+ li.list-cn-1-86:before {content: '八十六'}
+ li.list-cn-1-87:before {content: '八十七'}
+ li.list-cn-1-88:before {content: '八十八'}
+ li.list-cn-1-89:before {content: '八十九'}
+ li.list-cn-1-90:before {content: '九十'}
+ li.list-cn-1-91:before {content: '九十一'}
+ li.list-cn-1-92:before {content: '九十二'}
+ li.list-cn-1-93:before {content: '九十三'}
+ li.list-cn-1-94:before {content: '九十四'}
+ li.list-cn-1-95:before {content: '九十五'}
+ li.list-cn-1-96:before {content: '九十六'}
+ li.list-cn-1-97:before {content: '九十七'}
+ li.list-cn-1-98:before {content: '九十八'}
+
+
+ li.list-cn-2-1:before {content: '一）'}
+ li.list-cn-2-2:before {content: '二）'}
+ li.list-cn-2-3:before {content: '三）'}
+ li.list-cn-2-4:before {content: '四）'}
+ li.list-cn-2-5:before {content: '五）'}
+ li.list-cn-2-6:before {content: '六）'}
+ li.list-cn-2-7:before {content: '七）'}
+ li.list-cn-2-8:before {content: '八）'}
+ li.list-cn-2-9:before {content: '九）'}
+ li.list-cn-2-10:before {content: '十）'}
+ li.list-cn-2-11:before {content: '十一）'}
+ li.list-cn-2-12:before {content: '十二）'}
+ li.list-cn-2-13:before {content: '十三）'}
+ li.list-cn-2-14:before {content: '十四）'}
+ li.list-cn-2-15:before {content: '十五）'}
+ li.list-cn-2-16:before {content: '十六）'}
+ li.list-cn-2-17:before {content: '十七）'}
+ li.list-cn-2-18:before {content: '十八）'}
+ li.list-cn-2-19:before {content: '十九）'}
+ li.list-cn-2-20:before {content: '二十）'}
+ li.list-cn-2-21:before {content: '二十一）'}
+ li.list-cn-2-22:before {content: '二十二）'}
+ li.list-cn-2-23:before {content: '二十三）'}
+ li.list-cn-2-24:before {content: '二十四）'}
+ li.list-cn-2-25:before {content: '二十五）'}
+ li.list-cn-2-26:before {content: '二十六）'}
+ li.list-cn-2-27:before {content: '二十七）'}
+ li.list-cn-2-28:before {content: '二十八）'}
+ li.list-cn-2-29:before {content: '二十九）'}
+ li.list-cn-2-30:before {content: '三十）'}
+ li.list-cn-2-31:before {content: '三十一）'}
+ li.list-cn-2-32:before {content: '三十二）'}
+ li.list-cn-2-33:before {content: '三十三）'}
+ li.list-cn-2-34:before {content: '三十四）'}
+ li.list-cn-2-35:before {content: '三十五）'}
+ li.list-cn-2-36:before {content: '三十六）'}
+ li.list-cn-2-37:before {content: '三十七）'}
+ li.list-cn-2-38:before {content: '三十八）'}
+ li.list-cn-2-39:before {content: '三十九）'}
+ li.list-cn-2-40:before {content: '四十）'}
+ li.list-cn-2-41:before {content: '四十一）'}
+ li.list-cn-2-42:before {content: '四十二）'}
+ li.list-cn-2-43:before {content: '四十三）'}
+ li.list-cn-2-44:before {content: '四十四）'}
+ li.list-cn-2-45:before {content: '四十五）'}
+ li.list-cn-2-46:before {content: '四十六）'}
+ li.list-cn-2-47:before {content: '四十七）'}
+ li.list-cn-2-48:before {content: '四十八）'}
+ li.list-cn-2-49:before {content: '四十九）'}
+ li.list-cn-2-50:before {content: '五十）'}
+ li.list-cn-2-51:before {content: '五十一）'}
+ li.list-cn-2-52:before {content: '五十二）'}
+ li.list-cn-2-53:before {content: '五十三）'}
+ li.list-cn-2-54:before {content: '五十四）'}
+ li.list-cn-2-55:before {content: '五十五）'}
+ li.list-cn-2-56:before {content: '五十六）'}
+ li.list-cn-2-57:before {content: '五十七）'}
+ li.list-cn-2-58:before {content: '五十八）'}
+ li.list-cn-2-59:before {content: '五十九）'}
+ li.list-cn-2-60:before {content: '六十）'}
+ li.list-cn-2-61:before {content: '六十一）'}
+ li.list-cn-2-62:before {content: '六十二）'}
+ li.list-cn-2-63:before {content: '六十三）'}
+ li.list-cn-2-64:before {content: '六十四）'}
+ li.list-cn-2-65:before {content: '六十五）'}
+ li.list-cn-2-66:before {content: '六十六）'}
+ li.list-cn-2-67:before {content: '六十七）'}
+ li.list-cn-2-68:before {content: '六十八）'}
+ li.list-cn-2-69:before {content: '六十九）'}
+ li.list-cn-2-70:before {content: '七十）'}
+ li.list-cn-2-71:before {content: '七十一）'}
+ li.list-cn-2-72:before {content: '七十二）'}
+ li.list-cn-2-73:before {content: '七十三）'}
+ li.list-cn-2-74:before {content: '七十四）'}
+ li.list-cn-2-75:before {content: '七十五）'}
+ li.list-cn-2-76:before {content: '七十六）'}
+ li.list-cn-2-77:before {content: '七十七）'}
+ li.list-cn-2-78:before {content: '七十八）'}
+ li.list-cn-2-79:before {content: '七十九）'}
+ li.list-cn-2-80:before {content: '八十）'}
+ li.list-cn-2-81:before {content: '八十一）'}
+ li.list-cn-2-82:before {content: '八十二）'}
+ li.list-cn-2-83:before {content: '八十三）'}
+ li.list-cn-2-84:before {content: '八十四）'}
+ li.list-cn-2-85:before {content: '八十五）'}
+ li.list-cn-2-86:before {content: '八十六）'}
+ li.list-cn-2-87:before {content: '八十七）'}
+ li.list-cn-2-88:before {content: '八十八）'}
+ li.list-cn-2-89:before {content: '八十九）'}
+ li.list-cn-2-90:before {content: '九十）'}
+ li.list-cn-2-91:before {content: '九十一）'}
+ li.list-cn-2-92:before {content: '九十二）'}
+ li.list-cn-2-93:before {content: '九十三）'}
+ li.list-cn-2-94:before {content: '九十四）'}
+ li.list-cn-2-95:before {content: '九十五）'}
+ li.list-cn-2-96:before {content: '九十六）'}
+ li.list-cn-2-97:before {content: '九十七）'}
+ li.list-cn-2-98:before {content: '九十八）'}
+
+ li.list-cn-3-1:before {content: '（一）'}
+ li.list-cn-3-2:before {content: '（二）'}
+ li.list-cn-3-3:before {content: '（三）'}
+ li.list-cn-3-4:before {content: '（四）'}
+ li.list-cn-3-5:before {content: '（五）'}
+ li.list-cn-3-6:before {content: '（六）'}
+ li.list-cn-3-7:before {content: '（七）'}
+ li.list-cn-3-8:before {content: '（八）'}
+ li.list-cn-3-9:before {content: '（九）'}
+ li.list-cn-3-10:before {content: '（十）'}
+ li.list-cn-3-11:before {content: '（十一）'}
+ li.list-cn-3-12:before {content: '（十二）'}
+ li.list-cn-3-13:before {content: '（十三）'}
+ li.list-cn-3-14:before {content: '（十四）'}
+ li.list-cn-3-15:before {content: '（十五）'}
+ li.list-cn-3-16:before {content: '（十六）'}
+ li.list-cn-3-17:before {content: '（十七）'}
+ li.list-cn-3-18:before {content: '（十八）'}
+ li.list-cn-3-19:before {content: '（十九）'}
+ li.list-cn-3-20:before {content: '（二十）'}
+ li.list-cn-3-21:before {content: '（二十一）'}
+ li.list-cn-3-22:before {content: '（二十二）'}
+ li.list-cn-3-23:before {content: '（二十三）'}
+ li.list-cn-3-24:before {content: '（二十四）'}
+ li.list-cn-3-25:before {content: '（二十五）'}
+ li.list-cn-3-26:before {content: '（二十六）'}
+ li.list-cn-3-27:before {content: '（二十七）'}
+ li.list-cn-3-28:before {content: '（二十八）'}
+ li.list-cn-3-29:before {content: '（二十九）'}
+ li.list-cn-3-30:before {content: '（三十）'}
+ li.list-cn-3-31:before {content: '（三十一）'}
+ li.list-cn-3-32:before {content: '（三十二）'}
+ li.list-cn-3-33:before {content: '（三十三）'}
+ li.list-cn-3-34:before {content: '（三十四）'}
+ li.list-cn-3-35:before {content: '（三十五）'}
+ li.list-cn-3-36:before {content: '（三十六）'}
+ li.list-cn-3-37:before {content: '（三十七）'}
+ li.list-cn-3-38:before {content: '（三十八）'}
+ li.list-cn-3-39:before {content: '（三十九）'}
+ li.list-cn-3-40:before {content: '（四十）'}
+ li.list-cn-3-41:before {content: '（四十一）'}
+ li.list-cn-3-42:before {content: '（四十二）'}
+ li.list-cn-3-43:before {content: '（四十三）'}
+ li.list-cn-3-44:before {content: '（四十四）'}
+ li.list-cn-3-45:before {content: '（四十五）'}
+ li.list-cn-3-46:before {content: '（四十六）'}
+ li.list-cn-3-47:before {content: '（四十七）'}
+ li.list-cn-3-48:before {content: '（四十八）'}
+ li.list-cn-3-49:before {content: '（四十九）'}
+ li.list-cn-3-50:before {content: '（五十）'}
+ li.list-cn-3-51:before {content: '（五十一）'}
+ li.list-cn-3-52:before {content: '（五十二）'}
+ li.list-cn-3-53:before {content: '（五十三）'}
+ li.list-cn-3-54:before {content: '（五十四）'}
+ li.list-cn-3-55:before {content: '（五十五）'}
+ li.list-cn-3-56:before {content: '（五十六）'}
+ li.list-cn-3-57:before {content: '（五十七）'}
+ li.list-cn-3-58:before {content: '（五十八）'}
+ li.list-cn-3-59:before {content: '（五十九）'}
+ li.list-cn-3-60:before {content: '（六十）'}
+ li.list-cn-3-61:before {content: '（六十一）'}
+ li.list-cn-3-62:before {content: '（六十二）'}
+ li.list-cn-3-63:before {content: '（六十三）'}
+ li.list-cn-3-64:before {content: '（六十四）'}
+ li.list-cn-3-65:before {content: '（六十五）'}
+ li.list-cn-3-66:before {content: '（六十六）'}
+ li.list-cn-3-67:before {content: '（六十七）'}
+ li.list-cn-3-68:before {content: '（六十八）'}
+ li.list-cn-3-69:before {content: '（六十九）'}
+ li.list-cn-3-70:before {content: '（七十）'}
+ li.list-cn-3-71:before {content: '（七十一）'}
+ li.list-cn-3-72:before {content: '（七十二）'}
+ li.list-cn-3-73:before {content: '（七十三）'}
+ li.list-cn-3-74:before {content: '（七十四）'}
+ li.list-cn-3-75:before {content: '（七十五）'}
+ li.list-cn-3-76:before {content: '（七十六）'}
+ li.list-cn-3-77:before {content: '（七十七）'}
+ li.list-cn-3-78:before {content: '（七十八）'}
+ li.list-cn-3-79:before {content: '（七十九）'}
+ li.list-cn-3-80:before {content: '（八十）'}
+ li.list-cn-3-81:before {content: '（八十一）'}
+ li.list-cn-3-82:before {content: '（八十二）'}
+ li.list-cn-3-83:before {content: '（八十三）'}
+ li.list-cn-3-84:before {content: '（八十四）'}
+ li.list-cn-3-85:before {content: '（八十五）'}
+ li.list-cn-3-86:before {content: '（八十六）'}
+ li.list-cn-3-87:before {content: '（八十七）'}
+ li.list-cn-3-88:before {content: '（八十八）'}
+ li.list-cn-3-89:before {content: '（八十九）'}
+ li.list-cn-3-90:before {content: '（九十）'}
+ li.list-cn-3-91:before {content: '（九十一）'}
+ li.list-cn-3-92:before {content: '（九十二）'}
+ li.list-cn-3-93:before {content: '（九十三）'}
+ li.list-cn-3-94:before {content: '（九十四）'}
+ li.list-cn-3-95:before {content: '（九十五）'}
+ li.list-cn-3-96:before {content: '（九十六）'}
+ li.list-cn-3-97:before {content: '（九十七）'}
+ li.list-cn-3-98:before {content: '（九十八）'}
+
+
+
+
+ li.list-num-1-1:before {content: '1'}
+ li.list-num-1-2:before {content: '2'}
+ li.list-num-1-3:before {content: '3'}
+ li.list-num-1-4:before {content: '4'}
+ li.list-num-1-5:before {content: '5'}
+ li.list-num-1-6:before {content: '6'}
+ li.list-num-1-7:before {content: '7'}
+ li.list-num-1-8:before {content: '8'}
+ li.list-num-1-9:before {content: '9'}
+ li.list-num-1-10:before {content: '10'}
+ li.list-num-1-11:before {content: '11'}
+ li.list-num-1-12:before {content: '12'}
+ li.list-num-1-13:before {content: '13'}
+ li.list-num-1-14:before {content: '14'}
+ li.list-num-1-15:before {content: '15'}
+ li.list-num-1-16:before {content: '16'}
+ li.list-num-1-17:before {content: '17'}
+ li.list-num-1-18:before {content: '18'}
+ li.list-num-1-19:before {content: '19'}
+ li.list-num-1-20:before {content: '20'}
+ li.list-num-1-21:before {content: '21'}
+ li.list-num-1-22:before {content: '22'}
+ li.list-num-1-23:before {content: '23'}
+ li.list-num-1-24:before {content: '24'}
+ li.list-num-1-25:before {content: '25'}
+ li.list-num-1-26:before {content: '26'}
+ li.list-num-1-27:before {content: '27'}
+ li.list-num-1-28:before {content: '28'}
+ li.list-num-1-29:before {content: '29'}
+ li.list-num-1-30:before {content: '30'}
+ li.list-num-1-31:before {content: '31'}
+ li.list-num-1-32:before {content: '32'}
+ li.list-num-1-33:before {content: '33'}
+ li.list-num-1-34:before {content: '34'}
+ li.list-num-1-35:before {content: '35'}
+ li.list-num-1-36:before {content: '36'}
+ li.list-num-1-37:before {content: '37'}
+ li.list-num-1-38:before {content: '38'}
+ li.list-num-1-39:before {content: '39'}
+ li.list-num-1-40:before {content: '40'}
+ li.list-num-1-41:before {content: '41'}
+ li.list-num-1-42:before {content: '42'}
+ li.list-num-1-43:before {content: '43'}
+ li.list-num-1-44:before {content: '44'}
+ li.list-num-1-45:before {content: '45'}
+ li.list-num-1-46:before {content: '46'}
+ li.list-num-1-47:before {content: '47'}
+ li.list-num-1-48:before {content: '48'}
+ li.list-num-1-49:before {content: '49'}
+ li.list-num-1-50:before {content: '50'}
+ li.list-num-1-51:before {content: '51'}
+ li.list-num-1-52:before {content: '52'}
+ li.list-num-1-53:before {content: '53'}
+ li.list-num-1-54:before {content: '54'}
+ li.list-num-1-55:before {content: '55'}
+ li.list-num-1-56:before {content: '56'}
+ li.list-num-1-57:before {content: '57'}
+ li.list-num-1-58:before {content: '58'}
+ li.list-num-1-59:before {content: '59'}
+ li.list-num-1-60:before {content: '60'}
+ li.list-num-1-61:before {content: '61'}
+ li.list-num-1-62:before {content: '62'}
+ li.list-num-1-63:before {content: '63'}
+ li.list-num-1-64:before {content: '64'}
+ li.list-num-1-65:before {content: '65'}
+ li.list-num-1-66:before {content: '66'}
+ li.list-num-1-67:before {content: '67'}
+ li.list-num-1-68:before {content: '68'}
+ li.list-num-1-69:before {content: '69'}
+ li.list-num-1-70:before {content: '70'}
+ li.list-num-1-71:before {content: '71'}
+ li.list-num-1-72:before {content: '72'}
+ li.list-num-1-73:before {content: '73'}
+ li.list-num-1-74:before {content: '74'}
+ li.list-num-1-75:before {content: '75'}
+ li.list-num-1-76:before {content: '76'}
+ li.list-num-1-77:before {content: '77'}
+ li.list-num-1-78:before {content: '78'}
+ li.list-num-1-79:before {content: '79'}
+ li.list-num-1-80:before {content: '80'}
+ li.list-num-1-81:before {content: '81'}
+ li.list-num-1-82:before {content: '82'}
+ li.list-num-1-83:before {content: '83'}
+ li.list-num-1-84:before {content: '84'}
+ li.list-num-1-85:before {content: '85'}
+ li.list-num-1-86:before {content: '86'}
+ li.list-num-1-87:before {content: '87'}
+ li.list-num-1-88:before {content: '88'}
+ li.list-num-1-89:before {content: '89'}
+ li.list-num-1-90:before {content: '90'}
+ li.list-num-1-91:before {content: '91'}
+ li.list-num-1-92:before {content: '92'}
+ li.list-num-1-93:before {content: '93'}
+ li.list-num-1-94:before {content: '94'}
+ li.list-num-1-95:before {content: '95'}
+ li.list-num-1-96:before {content: '96'}
+ li.list-num-1-97:before {content: '97'}
+ li.list-num-1-98:before {content: '98'}
+
+
+
+ li.list-num-2-1:before {content: '1）'}
+ li.list-num-2-2:before {content: '2）'}
+ li.list-num-2-3:before {content: '3）'}
+ li.list-num-2-4:before {content: '4）'}
+ li.list-num-2-5:before {content: '5）'}
+ li.list-num-2-6:before {content: '6）'}
+ li.list-num-2-7:before {content: '7）'}
+ li.list-num-2-8:before {content: '8）'}
+ li.list-num-2-9:before {content: '9）'}
+ li.list-num-2-10:before {content: '10）'}
+ li.list-num-2-11:before {content: '11）'}
+ li.list-num-2-12:before {content: '12）'}
+ li.list-num-2-13:before {content: '13）'}
+ li.list-num-2-14:before {content: '14）'}
+ li.list-num-2-15:before {content: '15）'}
+ li.list-num-2-16:before {content: '16）'}
+ li.list-num-2-17:before {content: '17）'}
+ li.list-num-2-18:before {content: '18）'}
+ li.list-num-2-19:before {content: '19）'}
+ li.list-num-2-20:before {content: '20）'}
+ li.list-num-2-21:before {content: '21）'}
+ li.list-num-2-22:before {content: '22）'}
+ li.list-num-2-23:before {content: '23）'}
+ li.list-num-2-24:before {content: '24）'}
+ li.list-num-2-25:before {content: '25）'}
+ li.list-num-2-26:before {content: '26）'}
+ li.list-num-2-27:before {content: '27）'}
+ li.list-num-2-28:before {content: '28）'}
+ li.list-num-2-29:before {content: '29）'}
+ li.list-num-2-30:before {content: '30）'}
+ li.list-num-2-31:before {content: '31）'}
+ li.list-num-2-32:before {content: '32）'}
+ li.list-num-2-33:before {content: '33）'}
+ li.list-num-2-34:before {content: '34）'}
+ li.list-num-2-35:before {content: '35）'}
+ li.list-num-2-36:before {content: '36）'}
+ li.list-num-2-37:before {content: '37）'}
+ li.list-num-2-38:before {content: '38）'}
+ li.list-num-2-39:before {content: '39）'}
+ li.list-num-2-40:before {content: '40）'}
+ li.list-num-2-41:before {content: '41）'}
+ li.list-num-2-42:before {content: '42）'}
+ li.list-num-2-43:before {content: '43）'}
+ li.list-num-2-44:before {content: '44）'}
+ li.list-num-2-45:before {content: '45）'}
+ li.list-num-2-46:before {content: '46）'}
+ li.list-num-2-47:before {content: '47）'}
+ li.list-num-2-48:before {content: '48）'}
+ li.list-num-2-49:before {content: '49）'}
+ li.list-num-2-50:before {content: '50）'}
+ li.list-num-2-51:before {content: '51）'}
+ li.list-num-2-52:before {content: '52）'}
+ li.list-num-2-53:before {content: '53）'}
+ li.list-num-2-54:before {content: '54）'}
+ li.list-num-2-55:before {content: '55）'}
+ li.list-num-2-56:before {content: '56）'}
+ li.list-num-2-57:before {content: '57）'}
+ li.list-num-2-58:before {content: '58）'}
+ li.list-num-2-59:before {content: '59）'}
+ li.list-num-2-60:before {content: '60）'}
+ li.list-num-2-61:before {content: '61）'}
+ li.list-num-2-62:before {content: '62）'}
+ li.list-num-2-63:before {content: '63）'}
+ li.list-num-2-64:before {content: '64）'}
+ li.list-num-2-65:before {content: '65）'}
+ li.list-num-2-66:before {content: '66）'}
+ li.list-num-2-67:before {content: '67）'}
+ li.list-num-2-68:before {content: '68）'}
+ li.list-num-2-69:before {content: '69）'}
+ li.list-num-2-70:before {content: '70）'}
+ li.list-num-2-71:before {content: '71）'}
+ li.list-num-2-72:before {content: '72）'}
+ li.list-num-2-73:before {content: '73）'}
+ li.list-num-2-74:before {content: '74）'}
+ li.list-num-2-75:before {content: '75）'}
+ li.list-num-2-76:before {content: '76）'}
+ li.list-num-2-77:before {content: '77）'}
+ li.list-num-2-78:before {content: '78）'}
+ li.list-num-2-79:before {content: '79）'}
+ li.list-num-2-80:before {content: '80）'}
+ li.list-num-2-81:before {content: '81）'}
+ li.list-num-2-82:before {content: '82）'}
+ li.list-num-2-83:before {content: '83）'}
+ li.list-num-2-84:before {content: '84）'}
+ li.list-num-2-85:before {content: '85）'}
+ li.list-num-2-86:before {content: '86）'}
+ li.list-num-2-87:before {content: '87）'}
+ li.list-num-2-88:before {content: '88）'}
+ li.list-num-2-89:before {content: '89）'}
+ li.list-num-2-90:before {content: '90）'}
+ li.list-num-2-91:before {content: '91）'}
+ li.list-num-2-92:before {content: '92）'}
+ li.list-num-2-93:before {content: '93）'}
+ li.list-num-2-94:before {content: '94）'}
+ li.list-num-2-95:before {content: '95）'}
+ li.list-num-2-96:before {content: '96）'}
+ li.list-num-2-97:before {content: '97）'}
+ li.list-num-2-98:before {content: '98）'}
+
+
+
+
+ li.list-num-3-1:before {content: '（1）'}
+ li.list-num-3-2:before {content: '（2）'}
+ li.list-num-3-3:before {content: '（3）'}
+ li.list-num-3-4:before {content: '（4）'}
+ li.list-num-3-5:before {content: '（5）'}
+ li.list-num-3-6:before {content: '（6）'}
+ li.list-num-3-7:before {content: '（7）'}
+ li.list-num-3-8:before {content: '（8）'}
+ li.list-num-3-9:before {content: '（9）'}
+ li.list-num-3-10:before {content: '（10）'}
+ li.list-num-3-11:before {content: '（11）'}
+ li.list-num-3-12:before {content: '（12）'}
+ li.list-num-3-13:before {content: '（13）'}
+ li.list-num-3-14:before {content: '（14）'}
+ li.list-num-3-15:before {content: '（15）'}
+ li.list-num-3-16:before {content: '（16）'}
+ li.list-num-3-17:before {content: '（17）'}
+ li.list-num-3-18:before {content: '（18）'}
+ li.list-num-3-19:before {content: '（19）'}
+ li.list-num-3-20:before {content: '（20）'}
+ li.list-num-3-21:before {content: '（21）'}
+ li.list-num-3-22:before {content: '（22）'}
+ li.list-num-3-23:before {content: '（23）'}
+ li.list-num-3-24:before {content: '（24）'}
+ li.list-num-3-25:before {content: '（25）'}
+ li.list-num-3-26:before {content: '（26）'}
+ li.list-num-3-27:before {content: '（27）'}
+ li.list-num-3-28:before {content: '（28）'}
+ li.list-num-3-29:before {content: '（29）'}
+ li.list-num-3-30:before {content: '（30）'}
+ li.list-num-3-31:before {content: '（31）'}
+ li.list-num-3-32:before {content: '（32）'}
+ li.list-num-3-33:before {content: '（33）'}
+ li.list-num-3-34:before {content: '（34）'}
+ li.list-num-3-35:before {content: '（35）'}
+ li.list-num-3-36:before {content: '（36）'}
+ li.list-num-3-37:before {content: '（37）'}
+ li.list-num-3-38:before {content: '（38）'}
+ li.list-num-3-39:before {content: '（39）'}
+ li.list-num-3-40:before {content: '（40）'}
+ li.list-num-3-41:before {content: '（41）'}
+ li.list-num-3-42:before {content: '（42）'}
+ li.list-num-3-43:before {content: '（43）'}
+ li.list-num-3-44:before {content: '（44）'}
+ li.list-num-3-45:before {content: '（45）'}
+ li.list-num-3-46:before {content: '（46）'}
+ li.list-num-3-47:before {content: '（47）'}
+ li.list-num-3-48:before {content: '（48）'}
+ li.list-num-3-49:before {content: '（49）'}
+ li.list-num-3-50:before {content: '（50）'}
+ li.list-num-3-51:before {content: '（51）'}
+ li.list-num-3-52:before {content: '（52）'}
+ li.list-num-3-53:before {content: '（53）'}
+ li.list-num-3-54:before {content: '（54）'}
+ li.list-num-3-55:before {content: '（55）'}
+ li.list-num-3-56:before {content: '（56）'}
+ li.list-num-3-57:before {content: '（57）'}
+ li.list-num-3-58:before {content: '（58）'}
+ li.list-num-3-59:before {content: '（59）'}
+ li.list-num-3-60:before {content: '（60）'}
+ li.list-num-3-61:before {content: '（61）'}
+ li.list-num-3-62:before {content: '（62）'}
+ li.list-num-3-63:before {content: '（63）'}
+ li.list-num-3-64:before {content: '（64）'}
+ li.list-num-3-65:before {content: '（65）'}
+ li.list-num-3-66:before {content: '（66）'}
+ li.list-num-3-67:before {content: '（67）'}
+ li.list-num-3-68:before {content: '（68）'}
+ li.list-num-3-69:before {content: '（69）'}
+ li.list-num-3-70:before {content: '（70）'}
+ li.list-num-3-71:before {content: '（71）'}
+ li.list-num-3-72:before {content: '（72）'}
+ li.list-num-3-73:before {content: '（73）'}
+ li.list-num-3-74:before {content: '（74）'}
+ li.list-num-3-75:before {content: '（75）'}
+ li.list-num-3-76:before {content: '（76）'}
+ li.list-num-3-77:before {content: '（77）'}
+ li.list-num-3-78:before {content: '（78）'}
+ li.list-num-3-79:before {content: '（79）'}
+ li.list-num-3-80:before {content: '（80）'}
+ li.list-num-3-81:before {content: '（81）'}
+ li.list-num-3-82:before {content: '（82）'}
+ li.list-num-3-83:before {content: '（83）'}
+ li.list-num-3-84:before {content: '（84）'}
+ li.list-num-3-85:before {content: '（85）'}
+ li.list-num-3-86:before {content: '（86）'}
+ li.list-num-3-87:before {content: '（87）'}
+ li.list-num-3-88:before {content: '（88）'}
+ li.list-num-3-89:before {content: '（89）'}
+ li.list-num-3-90:before {content: '（90）'}
+ li.list-num-3-91:before {content: '（91）'}
+ li.list-num-3-92:before {content: '（92）'}
+ li.list-num-3-93:before {content: '（93）'}
+ li.list-num-3-94:before {content: '（94）'}
+ li.list-num-3-95:before {content: '（95）'}
+ li.list-num-3-96:before {content: '（96）'}
+ li.list-num-3-97:before {content: '（97）'}
+ li.list-num-3-98:before {content: '（98）'}
+
+
+ table {margin-bottom:10px;border-collapse:collapse;}
+ table tr td,  table tr th {padding:5px 10px;border:1px solid #DDD;}
+/*{width:100%;max-width:100vw;}*/
+
+.ql-container {
+  box-sizing: border-box;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  height: 100%;
+  margin: 0px;
+  position: relative;
+}
+
+.ql-container.ql-disabled .ql-tooltip {
+  visibility: hidden;
+}
+
+.ql-container.ql-disabled .ql-editor ul[data-checked] > li::before {
+  pointer-events: none;
+}
+
+.ql-clipboard {
+  left: -100000px;
+  height: 1px;
+  overflow-y: hidden;
+  position: absolute;
+  top: 50%;
+}
+
+.ql-clipboard p {
+  margin: 0;
+  padding: 0;
+}
+
+.ql-editor {
+  box-sizing: border-box;
+  line-height: 1.42;
+  height: 100%;
+  outline: none;
+  overflow-y: auto;
+  tab-size: 4;
+  -moz-tab-size: 4;
+  text-align: left;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ql-editor > * {
+  cursor: text;
+}
+
+.ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
+  margin: 0;
+  padding: 0;
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-editor ol, .ql-editor ul {
+  padding-left: 1.5em;
+}
+
+.ql-editor ol > li, .ql-editor ul > li {
+  list-style-type: none;
+}
+
+.ql-editor ul > li::before {
+  content: '\\2022';
+}
+
+.ql-editor ul[data-checked=true], .ql-editor ul[data-checked=false] {
+  pointer-events: none;
+}
+
+.ql-editor ul[data-checked=true] > li *, .ql-editor ul[data-checked=false] > li * {
+  pointer-events: all;
+}
+
+.ql-editor ul[data-checked=true] > li::before, .ql-editor ul[data-checked=false] > li::before {
+  color: #777;
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.ql-editor ul[data-checked=true] > li::before {
+  content: '\\2611';
+}
+
+.ql-editor ul[data-checked=false] > li::before {
+  content: '\\2610\';
+}
+
+.ql-editor li::before {
+  display: inline-block;
+  white-space: nowrap;
+  width: 1.2em;
+}
+
+.ql-editor li:not(.ql-direction-rtl)::before {
+  margin-left: -1.5em;
+  margin-right: 0.3em;
+  text-align: right;
+}
+
+.ql-editor li.ql-direction-rtl::before {
+  margin-left: 0.3em;
+  margin-right: -1.5em;
+}
+
+.ql-editor ol li:not(.ql-direction-rtl), .ql-editor ul li:not(.ql-direction-rtl) {
+  padding-left: 1.5em;
+}
+
+.ql-editor ol li.ql-direction-rtl, .ql-editor ul li.ql-direction-rtl {
+  padding-right: 1.5em;
+}
+
+.ql-editor ol li {
+  counter-reset: list-1 list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+  counter-increment: list-0;
+}
+
+.ql-editor ol li:before {
+  content: counter(list-0, decimal) ' . ';
+}
+
+.ql-editor ol li.ql-indent-1 {
+  counter-increment: list-1;
+}
+
+.ql-editor ol li.ql-indent-1:before {
+  content: counter(list-1, lower-alpha) ' . ';
+}
+
+.ql-editor ol li.ql-indent-1 {
+  counter-reset: list-2 list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-editor ol li.ql-indent-2 {
+  counter-increment: list-2;
+}
+
+.ql-editor ol li.ql-indent-2:before {
+  content: counter(list-2, lower-roman) ' . ';
+}
+
+.ql-editor ol li.ql-indent-2 {
+  counter-reset: list-3 list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-editor ol li.ql-indent-3 {
+  counter-increment: list-3;
+}
+
+.ql-editor ol li.ql-indent-3:before {
+  content: counter(list-3, decimal) ' . ';
+}
+
+.ql-editor ol li.ql-indent-3 {
+  counter-reset: list-4 list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-editor ol li.ql-indent-4 {
+  counter-increment: list-4;
+}
+
+.ql-editor ol li.ql-indent-4:before {
+  content: counter(list-4, lower-alpha) ' . ';
+}
+
+.ql-editor ol li.ql-indent-4 {
+  counter-reset: list-5 list-6 list-7 list-8 list-9;
+}
+
+.ql-editor ol li.ql-indent-5 {
+  counter-increment: list-5;
+}
+
+.ql-editor ol li.ql-indent-5:before {
+  content: counter(list-5, lower-roman) ' . ';
+}
+
+.ql-editor ol li.ql-indent-5 {
+  counter-reset: list-6 list-7 list-8 list-9;
+}
+
+.ql-editor ol li.ql-indent-6 {
+  counter-increment: list-6;
+}
+
+.ql-editor ol li.ql-indent-6:before {
+  content: counter(list-6, decimal) ' . ';
+}
+
+.ql-editor ol li.ql-indent-6 {
+  counter-reset: list-7 list-8 list-9;
+}
+
+.ql-editor ol li.ql-indent-7 {
+  counter-increment: list-7;
+}
+
+.ql-editor ol li.ql-indent-7:before {
+  content: counter(list-7, lower-alpha) ' . ';
+}
+
+.ql-editor ol li.ql-indent-7 {
+  counter-reset: list-8 list-9;
+}
+
+.ql-editor ol li.ql-indent-8 {
+  counter-increment: list-8;
+}
+
+.ql-editor ol li.ql-indent-8:before {
+  content: counter(list-8, lower-roman) ' . ';
+}
+
+.ql-editor ol li.ql-indent-8 {
+  counter-reset: list-9;
+}
+
+.ql-editor ol li.ql-indent-9 {
+  counter-increment: list-9;
+}
+
+.ql-editor ol li.ql-indent-9:before {
+  content: counter(list-9, decimal) ' . ';
+}
+
+.ql-editor .ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 3em;
+}
+
+.ql-editor li.ql-indent-1:not(.ql-direction-rtl) {
+  padding-left: 4.5em;
+}
+
+.ql-editor .ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 3em;
+}
+
+.ql-editor li.ql-indent-1.ql-direction-rtl.ql-align-right {
+  padding-right: 4.5em;
+}
+
+.ql-editor .ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 6em;
+}
+
+.ql-editor li.ql-indent-2:not(.ql-direction-rtl) {
+  padding-left: 7.5em;
+}
+
+.ql-editor .ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 6em;
+}
+
+.ql-editor li.ql-indent-2.ql-direction-rtl.ql-align-right {
+  padding-right: 7.5em;
+}
+
+.ql-editor .ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 9em;
+}
+
+.ql-editor li.ql-indent-3:not(.ql-direction-rtl) {
+  padding-left: 10.5em;
+}
+
+.ql-editor .ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 9em;
+}
+
+.ql-editor li.ql-indent-3.ql-direction-rtl.ql-align-right {
+  padding-right: 10.5em;
+}
+
+.ql-editor .ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 12em;
+}
+
+.ql-editor li.ql-indent-4:not(.ql-direction-rtl) {
+  padding-left: 13.5em;
+}
+
+.ql-editor .ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 12em;
+}
+
+.ql-editor li.ql-indent-4.ql-direction-rtl.ql-align-right {
+  padding-right: 13.5em;
+}
+
+.ql-editor .ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 15em;
+}
+
+.ql-editor li.ql-indent-5:not(.ql-direction-rtl) {
+  padding-left: 16.5em;
+}
+
+.ql-editor .ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 15em;
+}
+
+.ql-editor li.ql-indent-5.ql-direction-rtl.ql-align-right {
+  padding-right: 16.5em;
+}
+
+.ql-editor .ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 18em;
+}
+
+.ql-editor li.ql-indent-6:not(.ql-direction-rtl) {
+  padding-left: 19.5em;
+}
+
+.ql-editor .ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 18em;
+}
+
+.ql-editor li.ql-indent-6.ql-direction-rtl.ql-align-right {
+  padding-right: 19.5em;
+}
+
+.ql-editor .ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 21em;
+}
+
+.ql-editor li.ql-indent-7:not(.ql-direction-rtl) {
+  padding-left: 22.5em;
+}
+
+.ql-editor .ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 21em;
+}
+
+.ql-editor li.ql-indent-7.ql-direction-rtl.ql-align-right {
+  padding-right: 22.5em;
+}
+
+.ql-editor .ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 24em;
+}
+
+.ql-editor li.ql-indent-8:not(.ql-direction-rtl) {
+  padding-left: 25.5em;
+}
+
+.ql-editor .ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 24em;
+}
+
+.ql-editor li.ql-indent-8.ql-direction-rtl.ql-align-right {
+  padding-right: 25.5em;
+}
+
+.ql-editor .ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 27em;
+}
+
+.ql-editor li.ql-indent-9:not(.ql-direction-rtl) {
+  padding-left: 28.5em;
+}
+
+.ql-editor .ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 27em;
+}
+
+.ql-editor li.ql-indent-9.ql-direction-rtl.ql-align-right {
+  padding-right: 28.5em;
+}
+
+.ql-editor .ql-video {
+  display: block;
+  max-width: 100%;
+}
+
+.ql-editor .ql-video.ql-align-center {
+  margin: 0 auto;
+}
+
+.ql-editor .ql-video.ql-align-right {
+  margin: 0 0 0 auto;
+}
+
+.ql-editor .ql-bg-black {
+  background-color: #000;
+}
+
+.ql-editor .ql-bg-red {
+  background-color: #e60000;
+}
+
+.ql-editor .ql-bg-orange {
+  background-color: #f90;
+}
+
+.ql-editor .ql-bg-yellow {
+  background-color: #ff0;
+}
+
+.ql-editor .ql-bg-green {
+  background-color: #008a00;
+}
+
+.ql-editor .ql-bg-blue {
+  background-color: #06c;
+}
+
+.ql-editor .ql-bg-purple {
+  background-color: #93f;
+}
+
+.ql-editor .ql-color-white {
+  color: #fff;
+}
+
+.ql-editor .ql-color-red {
+  color: #e60000;
+}
+
+.ql-editor .ql-color-orange {
+  color: #f90;
+}
+
+.ql-editor .ql-color-yellow {
+  color: #ff0;
+}
+
+.ql-editor .ql-color-green {
+  color: #008a00;
+}
+
+.ql-editor .ql-color-blue {
+  color: #06c;
+}
+
+.ql-editor .ql-color-purple {
+  color: #93f;
+}
+
+.ql-editor .ql-font-serif {
+  font-family: Georgia, Times New Roman, serif;
+}
+
+.ql-editor .ql-font-monospace {
+  font-family: Monaco, Courier New, monospace;
+}
+
+.ql-editor .ql-size-small {
+  font-size: 0.75em;
+}
+
+.ql-editor .ql-size-large {
+  font-size: 1.5em;
+}
+
+.ql-editor .ql-size-huge {
+  font-size: 2.5em;
+}
+
+.ql-editor .ql-direction-rtl {
+  direction: rtl;
+  text-align: inherit;
+}
+
+.ql-editor .ql-align-center {
+  text-align: center;
+}
+
+.ql-editor .ql-align-justify {
+  text-align: justify;
+}
+
+.ql-editor .ql-align-right {
+  text-align: right;
+}
+
+.ql-editor.ql-blank::before {
+  color: rgba(0, 0, 0, 0.6);
+  content: attr(data-placeholder);
+  font-style: italic;
+  left: 15px;
+  pointer-events: none;
+  position: absolute;
+  right: 15px;
+}
+
+.ql-editor {
+  box-sizing: border-box;
+}
+
+.ql-editor * {
+  box-sizing: border-box;
+}
+
+.ql-editor .ql-hidden {
+  display: none;
+}
+
+.ql-editor .ql-out-bottom, .ql-editor .ql-out-top {
+  visibility: hidden;
+}
+
+.ql-editor .ql-tooltip {
+  position: absolute;
+  transform: translateY(10px);
+}
+
+.ql-editor .ql-tooltip a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ql-editor .ql-tooltip.ql-flip {
+  transform: translateY(-10px);
+}
+
+.ql-editor .ql-stroke {
+  fill: none;
+  stroke: #444;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+.ql-editor .ql-stroke-miter {
+  fill: none;
+  stroke: #444;
+  stroke-miterlimit: 10;
+  stroke-width: 2;
+}
+
+.ql-editor .ql-fill, .ql-editor .ql-stroke.ql-fill {
+  fill: #444;
+}
+
+.ql-editor .ql-empty {
+  fill: none;
+}
+
+.ql-editor .ql-even {
+  fill-rule: evenodd;
+}
+
+.ql-editor .ql-thin, .ql-editor .ql-stroke.ql-thin {
+  stroke-width: 1;
+}
+
+.ql-editor .ql-transparent {
+  opacity: 0.4;
+}
+
+.ql-editor .ql-direction svg:last-child {
+  display: none;
+}
+
+.ql-editor .ql-direction.ql-active svg:last-child {
+  display: inline;
+}
+
+.ql-editor .ql-direction.ql-active svg:first-child {
+  display: none;
+}
+
+.ql-editor h1 {
+  font-size: 2em;
+}
+
+.ql-editor h2 {
+  font-size: 1.5em;
+}
+
+.ql-editor h3 {
+  font-size: 1.17em;
+}
+
+.ql-editor h4 {
+  font-size: 1em;
+}
+
+.ql-editor h5 {
+  font-size: 0.83em;
+}
+
+.ql-editor h6 {
+  font-size: 0.67em;
+}
+
+.ql-editor a {
+  text-decoration: underline;
+}
+
+.ql-editor blockquote {
+  border-left: 4px solid #ccc;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding-left: 16px;
+}
+
+.ql-editor code, .ql-editor pre {
+  background-color: #f0f0f0;
+  border-radius: 3px;
+}
+
+.ql-editor pre {
+  white-space: pre-wrap;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  padding: 5px 10px;
+}
+
+.ql-editor code {
+  font-size: 85%;
+  padding: 2px 4px;
+}
+
+.ql-editor pre.ql-syntax {
+  background-color: #23241f;
+  color: #f8f8f2;
+  overflow: visible;
+}
+
+.ql-editor img {
+  max-width: 100%;
+}
+
+.ql-editor .ql-picker {
+  color: #444;
+  display: inline-block;
+  float: left;
+  font-size: 14px;
+  font-weight: 500;
+  height: 24px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.ql-editor .ql-picker-label {
+  cursor: pointer;
+  display: inline-block;
+  height: 100%;
+  padding-left: 8px;
+  padding-right: 2px;
+  position: relative;
+  width: 100%;
+}
+
+.ql-editor .ql-picker-label::before {
+  display: inline-block;
+  line-height: 22px;
+}
+
+.ql-editor .ql-picker-options {
+  background-color: #fff;
+  display: none;
+  min-width: 100%;
+  padding: 4px 8px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.ql-editor .ql-picker-options .ql-picker-item {
+  cursor: pointer;
+  display: block;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.ql-editor .ql-picker.ql-expanded .ql-picker-label {
+  color: #ccc;
+  z-index: 2;
+}
+
+.ql-editor .ql-picker.ql-expanded .ql-picker-label .ql-fill {
+  fill: #ccc;
+}
+
+.ql-editor .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
+  stroke: #ccc;
+}
+
+.ql-editor .ql-picker.ql-expanded .ql-picker-options {
+  display: block;
+  margin-top: -1px;
+  top: 100%;
+  z-index: 1;
+}
+
+.ql-editor .ql-color-picker, .ql-editor .ql-icon-picker {
+  width: 28px;
+}
+
+.ql-editor .ql-color-picker .ql-picker-label, .ql-editor .ql-icon-picker .ql-picker-label {
+  padding: 2px 4px;
+}
+
+.ql-editor .ql-color-picker .ql-picker-label svg, .ql-editor .ql-icon-picker .ql-picker-label svg {
+  right: 4px;
+}
+
+.ql-editor .ql-icon-picker .ql-picker-options {
+  padding: 4px 0px;
+}
+
+.ql-editor .ql-icon-picker .ql-picker-item {
+  height: 24px;
+  width: 24px;
+  padding: 2px 4px;
+}
+
+.ql-editor .ql-color-picker .ql-picker-options {
+  padding: 3px 5px;
+  width: 152px;
+}
+
+.ql-editor .ql-color-picker .ql-picker-item {
+  border: 1px solid transparent;
+  float: left;
+  height: 16px;
+  margin: 2px;
+  padding: 0px;
+  width: 16px;
+}
+
+.ql-editor .ql-picker:not(.ql-color-picker):not(.ql-icon-picker) svg {
+  position: absolute;
+  margin-top: -9px;
+  right: 0;
+  top: 50%;
+  width: 18px;
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label[data-label]:not([data-label=\'\'])::before, .ql-editor .ql-picker.ql-font .ql-picker-label[data-label]:not([data-label=\'\'])::before, .ql-editor .ql-picker.ql-size .ql-picker-label[data-label]:not([data-label=\'\'])::before, .ql-editor .ql-picker.ql-header .ql-picker-item[data-label]:not([data-label=\'\'])::before, .ql-editor .ql-picker.ql-font .ql-picker-item[data-label]:not([data-label=\'\'])::before, .ql-editor .ql-picker.ql-size .ql-picker-item[data-label]:not([data-label=\'\'])::before {
+  content: attr(data-label);
+}
+
+.ql-editor .ql-picker.ql-header {
+  width: 98px;
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label::before, .ql-editor .ql-picker.ql-header .ql-picker-item::before {
+  content: 'Normal';
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label[data-value="1"]::before, .ql-editor .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  content: 'Heading 1 ';
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label[data-value="2"]::before, .ql-editor .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  content: 'Heading 2 ';
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label[data-value="3"]::before, .ql-editor .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  content: 'Heading 3 ';
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label[data-value="4"]::before, .ql-editor .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  content: 'Heading 4 ';
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label[data-value="5"]::before, .ql-editor .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  content: 'Heading 5 ';
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-label[data-value="6"]::before, .ql-editor .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  content: 'Heading 6 ';
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-item[data-value="1"]::before {
+  font-size: 2em;
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-item[data-value="2"]::before {
+  font-size: 1.5em;
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-item[data-value="3"]::before {
+  font-size: 1.17em;
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-item[data-value="4"]::before {
+  font-size: 1em;
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-item[data-value="5"]::before {
+  font-size: 0.83em;
+}
+
+.ql-editor .ql-picker.ql-header .ql-picker-item[data-value="6"]::before {
+  font-size: 0.67em;
+}
+
+.ql-editor .ql-picker.ql-font {
+  width: 108px;
+}
+
+.ql-editor .ql-picker.ql-font .ql-picker-label::before, .ql-editor .ql-picker.ql-font .ql-picker-item::before {
+  content: 'Sans Serif';
+}
+
+.ql-editor .ql-picker.ql-font .ql-picker-label[data-value=serif]::before, .ql-editor .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  content: 'Serif';
+}
+
+.ql-editor .ql-picker.ql-font .ql-picker-label[data-value=monospace]::before, .ql-editor .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  content: 'Monospace';
+}
+
+.ql-editor .ql-picker.ql-font .ql-picker-item[data-value=serif]::before {
+  font-family: Georgia, Times New Roman, serif;
+}
+
+.ql-editor .ql-picker.ql-font .ql-picker-item[data-value=monospace]::before {
+  font-family: Monaco, Courier New, monospace;
+}
+
+.ql-editor .ql-picker.ql-size {
+  width: 98px;
+}
+
+.ql-editor .ql-picker.ql-size .ql-picker-label::before, .ql-editor .ql-picker.ql-size .ql-picker-item::before {
+  content: 'Normal';
+}
+
+.ql-editor .ql-picker.ql-size .ql-picker-label[data-value=small]::before, .ql-editor .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  content: 'Small';
+}
+
+.ql-editor .ql-picker.ql-size .ql-picker-label[data-value=large]::before, .ql-editor .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  content: 'Large';
+}
+
+.ql-editor .ql-picker.ql-size .ql-picker-label[data-value=huge]::before, .ql-editor .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  content: 'Huge';
+}
+
+.ql-editor .ql-picker.ql-size .ql-picker-item[data-value=small]::before {
+  font-size: 10px;
+}
+
+.ql-editor .ql-picker.ql-size .ql-picker-item[data-value=large]::before {
+  font-size: 18px;
+}
+
+.ql-editor .ql-picker.ql-size .ql-picker-item[data-value=huge]::before {
+  font-size: 32px;
+}
+
+.ql-editor .ql-color-picker.ql-background .ql-picker-item {
+  background-color: #fff;
+}
+
+.ql-editor .ql-color-picker.ql-color .ql-picker-item {
+  background-color: #000;
+}
+
+.ql-editor .ql-tooltip {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px #ddd;
+  color: #444;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+
+.ql-editor .ql-tooltip::before {
+  content: "Visit URL:";
+  line-height: 26px;
+  margin-right: 8px;
+}
+
+.ql-editor .ql-tooltip input[type=text] {
+  display: none;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  height: 26px;
+  margin: 0px;
+  padding: 3px 5px;
+  width: 170px;
+}
+
+.ql-editor .ql-tooltip a.ql-preview {
+  display: inline-block;
+  max-width: 200px;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+
+.ql-editor .ql-tooltip a.ql-action::after {
+  border-right: 1px solid #ccc;
+  content: 'Edit';
+  margin-left: 16px;
+  padding-right: 8px;
+}
+
+.ql-editor .ql-tooltip a.ql-remove::before {
+  content: 'Remove';
+  margin-left: 8px;
+}
+
+.ql-editor .ql-tooltip a {
+  line-height: 26px;
+}
+
+.ql-editor .ql-tooltip.ql-editing a.ql-preview, .ql-editor .ql-tooltip.ql-editing a.ql-remove {
+  display: none;
+}
+
+.ql-editor .ql-tooltip.ql-editing input[type=text] {
+  display: inline-block;
+}
+
+.ql-editor .ql-tooltip.ql-editing a.ql-action::after {
+  border-right: 0px;
+  content: 'Save';
+  padding-right: 0px;
+}
+
+.ql-editor .ql-tooltip[data-mode=link]::before {
+  content: "Enter link:";
+}
+
+.ql-editor .ql-tooltip[data-mode=formula]::before {
+  content: "Enter formula:";
+}
+
+.ql-editor .ql-tooltip[data-mode=video]::before {
+  content: "Enter video:";
+}
+
+.ql-editor a {
+  color: #06c;
+}
+
+.ql-container.ql-editor {
+  border: 1px solid #ccc;
+}

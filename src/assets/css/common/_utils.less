@@ -1,0 +1,82 @@
+.no-data {
+  text-align: center;
+  line-height: 40px;
+  color: #999;
+}
+
+.table-tool {
+  font-size: 12px;
+  color: rgb(77, 179, 255);
+  text-decoration: none;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.p-loading {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5000;
+  background: rgba(255, 255, 255, .9);
+  color: #20a0ff;
+  text-align: center;
+  min-height: 300px;
+  .i-load {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #20a0ff;
+    border-top-color: transparent;
+    margin: 5px auto;
+    border-radius: 50%;
+    animation: circle 1s infinite;
+  }
+}
+
+@keyframes circle {
+  0% {transform: rotate(0)}
+  100% {transform: rotate(360deg)}
+}
+
+@media (max-width: 1000px) {
+  #app {
+    display: block !important;
+  }
+  .slide-wrapper {
+    position: absolute;
+    z-index: 1005;
+    top: 50px;
+    overflow: auto;
+    &.open {
+      display: block;
+    }
+    &.close {
+      display: none;
+    }
+    &, .menu {
+      width: 100% !important;
+    }
+  }
+  .content-wrapper {
+    .content {
+      .nav-tabs-custom {
+        .table-box {
+          overflow: auto;
+          table {
+            min-width: 1600px;
+            overflow: auto;
+          }
+        }
+      }
+      .tab-pane {
+        overflow: auto;
+        > div, > .form-search, .el-form {
+          min-width: 1600px;
+          overflow: auto;
+        }
+      }
+    }
+  }
+}

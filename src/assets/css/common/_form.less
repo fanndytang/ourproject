@@ -1,0 +1,236 @@
+.btn {
+  border-radius: 4px;
+  background: transparent;
+  border: 1px solid #c4c4c4;
+  color: #1f2d3d;
+  padding: 8px 13px;
+  cursor: pointer;
+
+  & + .btn {
+    margin-left: 10px;
+  }
+
+  &.btn-primary {
+    background: #20a0ff;
+    color: #fff;
+    border-color: #20a0ff;
+    &:hover {
+      background: lighten(#20a0ff, 10%);
+    }
+  }
+  &.btn-sm {
+    padding: 4px 8px;
+    font-size: 12px;
+  }
+}
+
+.el-upload__input {
+  display: none !important;
+}
+.el-radio__label, .el-form-item__label {
+  font-weight: normal;
+}
+.checkbox, .radio {
+  margin-top: 0
+}
+
+// 上传图片
+.avatar-uploader {
+  .el-upload {
+    border: 1px dashed #d9d9d9;
+    border-radius: 6px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    &:hover {
+      border-color: #20a0ff;
+    }
+  }
+  .avatar-uploader-icon {
+    font-size: 28px;
+    color: #8c939d;
+    width: 178px;
+    height: 178px;
+    line-height: 178px;
+    text-align: center;
+  }
+  .avatar {
+    width: 178px;
+    height: 178px;
+    display: block;
+  }
+}
+
+
+.newtab-form {
+  .el-form {
+    //width: 35%;
+  }
+  .el-form-item {
+    max-width: 35%;
+    &.rs-editor, &.rs-transfer {
+      max-width: 80%;
+      .el-form-item__content {
+        border: 1px solid transparent;
+      }
+      &.is-error .el-form-item__content {
+        border: 1px solid #f56c6c;
+        border-radius: 4px;
+      }
+    }
+  }
+  .el-form-item__error {
+    left: 100% !important;
+    top: 0 !important;
+    line-height: 30px !important;
+    white-space: nowrap;
+    margin-left: 10px;
+    padding: 0;
+  }
+
+  .el-form-item {
+    margin-bottom: 8px !important;
+  }
+
+  .el-form-item__label {
+    margin-bottom: 0 !important;
+  }
+}
+
+
+.form-label-tip {
+  position: absolute;
+  right: 100%;
+  color: #aaa;
+  font-size: 12px;
+  top: 20px;
+  min-width: 100px;
+  margin-right: 10px;
+  text-align: right;
+  display: block;
+}
+
+
+.el-input-group__append {
+  position: absolute !important;
+  left: 100%;
+  top: 0;
+  height: 100%;
+  width: 36px !important;
+  line-height: 36px;
+}
+
+.el-date-editor.el-range-editor.el-input__inner.el-date-editor--daterange {
+  width: 220px;
+}
+
+.rs-transfer {
+  .transfer-panel {
+    width: 45%;
+    border: 1px solid #ebeef5;
+    border-radius: 4px;
+    display: inline-block;
+    vertical-align: middle;
+    &:nth-child(3) .el-transfer-panel__filter {
+      display: none;
+    }
+  }
+  .el-transfer-panel__filter {
+    padding: 0 15px;
+    .el-input__inner {
+      height: 36px;
+    }
+  }
+  .p-body {
+    height: 295px;
+    clear: both;
+    overflow: auto;
+    .all_list .el-checkbox, .el-radio {
+      display: block;
+      margin-left: 0;
+      line-height: 30px;
+    }
+    .check_list {
+      padding: 0 20px;
+      &:hover {
+        background: #ddecfb;
+      }
+    }
+    .check_title {
+      width: 80%;
+      display:inline-block;
+    }
+    .check_del {
+      width:16%;
+      display:inline-block;
+      text-align:right;
+      float:right;
+      cursor:pointer;
+      color: #666;
+    }
+  }
+  .p-footer {
+    height: 40px;
+    padding: 0 20px;
+    border-top: 1px solid #ebeef5;
+    .btn {
+      margin: 5px 0 0 20px;
+      padding: 6px 5px;
+      & + .btn {
+        margin-left: 0;
+      }
+    }
+  }
+  .transfer-footer {
+    float: right;
+    margin: 7px 5px 0 0 ;
+  }
+  .p-header {
+    padding-right: 16px;
+    height: 40px;
+    line-height: 40px;
+    background: #f5f7fa;
+    padding-left: 15px;
+    border-bottom: 1px solid #ebeef5;
+    color: #000;
+    .title {
+      width: 40%;
+      display:inline-block;
+    }
+    .right {
+      width: 58%;
+      display:inline-block;
+      input {
+        border: 1px solid #dcdfe6;
+      }
+    }
+  }
+  .el-checkbox__label, .el-radio__label {
+    font-weight:normal;
+  }
+  .fa-angle-double-right {
+    font-size: 40px;
+    margin: 10px;
+    color: #d1dbe5;
+  }
+}
+
+.el-form-item .el-form-item__content .el-select .el-select__tags .el-select__input {
+  font-size: 12px;
+}
+
+@media (max-width: 1600px) {
+  .newtab-form {
+    .el-form-item {
+      max-width: 46%;
+    }
+  }
+}
+
+@media (max-width: 1300px) {
+  .newtab-form {
+    .el-form-item {
+      max-width: 60%;
+    }
+  }
+}

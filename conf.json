@@ -1,0 +1,30 @@
+{
+  "plugins": [
+    "node_modules/jsdoc-vuejs"
+  ],
+  "jsdoc-vuejs": {
+    "followImports": false
+  },
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "source": {
+    "include": ["./src"],
+    "includePattern": "\\.(vue|js)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true,
+    "default": {
+      "outputSourceFiles" : true
+    },
+    "applicationName": "demo",
+    "openGraph": {},
+    "meta": {}
+  },
+  "opts": {
+    "destination": "./开发文档/",
+    "recurse": true
+  }
+}
