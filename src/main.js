@@ -1,7 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 // import Vue from 'vue'
-import axios from '@/plugin/axios'
+//import axios from '@/plugin/axios'
 import App from './App'
 import router from './router'
 //import store from '@/store/index'
@@ -36,7 +36,7 @@ Vue.use(Loading.directive)*/
 //Vue.use(RsComponent)
 
 //Vue.prototype.$loading = Loading.service
-Vue.prototype.$http = axios
+//Vue.prototype.$http = axios
 //Vue.prototype.$xhr = xhr
 //Vue.prototype.$message = xhr.message
 

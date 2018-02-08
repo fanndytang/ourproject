@@ -1,6 +1,4 @@
-import axios from 'axios'
-//import Vue from 'vue'
-import Token from '@/model/api/token'
+//import Token from '@/model/api/token'
 
 /**
  * @class
@@ -148,9 +146,26 @@ class XHR {
       headers['ClientId'] = localStorage.getItem('ClientId')
     }
 
-    let $http = axios.create()
-    $http.defaults.timeout = 12000
-    $http({
+    let $http = new XMLHttpRequest()
+   // $http.defaults.timeout = 12000
+    $http.open(that.request.method, that.request.url, true)
+    $http.onreadystatechange = (res) => {
+      if($http.readyState === 4) {
+        let res = JSON.parse($http.response)
+        if($http.status === 200) {
+          that.httpSuccess(res)
+        }else {
+          /*that.httpError({
+            msg: that.errcode[parseInt(res.data.errcode)] || res.data.errmsg || '',
+            errcode: parseInt(res.data.errcode) || ''
+          })*/
+        }
+      }
+    }
+   // $http.send(params)
+    $http.send()
+
+   /* $http({
       method: that.request.method,
       url: that.request.url,
       data: data,                  //  post  或  put  请求
@@ -175,7 +190,7 @@ class XHR {
         msg: '网络错误',
         errcode: '500'
       })
-    })
+    })*/
   }
 
   /**

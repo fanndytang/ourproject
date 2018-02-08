@@ -1,32 +1,49 @@
 <template>
   <div>
     test
+
+    {{ test.test }}
   </div>
 </template>
 
 <script>
+  import XHR from '@/model/api/xhr'
   export default {
+    data () {
+      return {
+        test: ''
+      }
+    },
     mounted () {
-     /* this.$http.get('http://192.168.10.105:8888/test', (res) => {
-        console.log('请求结束')
-        console.log(res)
-      }).catch(() => {
-        console.log('catch请求结束')
-      })*/
+     let that = this
+     let xhr = new XHR({
+       request: {
+         // data: {},
+         params: {},
+         method: 'get',
+         url: 'http://192.168.10.105:8888/test',
+         headers: ''
+       }
+     })
+      xhr.httpSuccess = res => {
+        that.test = res
+      }
+     xhr.httpRequest()
 
+    /* let that = this
      let xhr = new XMLHttpRequest()
       xhr.open("GET", 'http://192.168.10.105:8888/test',true);
       xhr.onreadystatechange=function(res){
         if(xhr.readyState==4) {
           if(xhr.status==200) {
-            console.log(JSON.parse(res.target.response))
+            that.test = JSON.parse(res.target.response)
             console.log('success')
           } else {
             console.log('error')
           }
         }
       };
-      xhr.send(null);
+      xhr.send(null);*/
     }
   }
 </script>
