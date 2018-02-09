@@ -16,15 +16,10 @@
     },
     mounted () {
      let that = this
-     let xhr = new XHR({
-       request: {
-         // data: {},
-         params: {},
-         method: 'get',
-         url: 'http://192.168.10.105:8888/test',
-         headers: ''
-       }
-     })
+     let xhr = new XHR()
+      xhr.request.method = 'get'
+      xhr.request.url = 'http://192.168.10.105:8888/test'
+      xhr.request.params = {}
       xhr.httpSuccess = res => {
         that.test = res
       }

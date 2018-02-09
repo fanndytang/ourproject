@@ -148,8 +148,16 @@ class XHR {
 
     let $http = new XMLHttpRequest()
    // $http.defaults.timeout = 12000
-    $http.open(that.request.method, that.request.url, true)
-    $http.onreadystatechange = (res) => {
+
+    let canSend = that.request.method.toLocaleLowerCase().match(/post|put/) !== null
+
+    let cache = ''
+    if(!canSend) {  //  get 或 delete 请求
+      for(let k in params)  cache += `${!cache ? '&' : ''}${k}=${params[k]}`
+    }
+
+    $http.open(that.request.method, that.request.url + cache, true)
+    $http.onreadystatechange = () => {
       if($http.readyState === 4) {
         let res = JSON.parse($http.response)
         if($http.status === 200) {
@@ -162,8 +170,7 @@ class XHR {
         }
       }
     }
-   // $http.send(params)
-    $http.send()
+    $http.send(cache ? null : data)
 
    /* $http({
       method: that.request.method,
