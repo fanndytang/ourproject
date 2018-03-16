@@ -1,0 +1,17 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "description": "ad",
+  "author": "fanhh <1825923694@qq.comm>",
+  "private": true,
+  "scripts": {
+    "server": "node server.js",
+    "build": "node build.js",
+    "jsdoc": "jsdoc -c conf.json"
+  },
+  "devDependencies": {
+    "fs": "^0.0.1",
+    "path": "^0.12.7",
+    "http": "^0.0.0"
+  }
+}

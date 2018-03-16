@@ -1,0 +1,52 @@
+.rs-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .6);
+  .m-content {
+    width: 60%;
+    height: 60%;
+    background: #fff;
+    border-radius: 10px;
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  .m-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 24px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: #bbb;
+    &:hover {
+      color: #20a0ff;
+    }
+  }
+  .m-head {
+    border-bottom: 1px solid #dcdfe6;
+    line-height: 30px;
+    text-align: center;
+  }
+  .m-body {
+    flex: 1;
+    overflow: auto;
+  }
+  .m-foot {
+    border-top: 1px solid #dcdfe6;
+    text-align: center;
+    .btn {
+      margin: 10px 10px 0 10px;
+    }
+  }
+}

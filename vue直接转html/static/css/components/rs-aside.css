@@ -1,0 +1,70 @@
+.slide-wrapper {
+  min-height: calc(100vh - 40px);
+  background: #324157;
+}
+.slide-wrapper,
+.slide-wrapper ul {
+  transition: all 0.4s ease-in-out;
+}
+.slide-wrapper.open {
+  width: 140px;
+}
+.slide-wrapper.close {
+  width: 40px;
+}
+.slide-wrapper.close .menu ul {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background: #fff;
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.1);
+  color: #2c3e50;
+  z-index: 100;
+  min-width: 140px;
+  display: none;
+}
+.slide-wrapper.close .menu ul li:hover > .label {
+  background: #f1f1f1;
+}
+.slide-wrapper.close .menu > li > .label > .text {
+  display: none;
+}
+.slide-wrapper.close .menu li:hover > ul {
+  display: block;
+}
+.slide-wrapper .menu {
+  font-size: 14px;
+  line-height: 32px;
+}
+.slide-wrapper .menu,
+.slide-wrapper .menu a,
+.slide-wrapper .menu li {
+  color: #bfcbd9;
+  text-decoration: none;
+}
+.slide-wrapper .menu li {
+  position: relative;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.slide-wrapper .menu li.open > .label {
+  color: #20a0ff;
+}
+.slide-wrapper .menu .label {
+  padding: 0 10px;
+}
+.slide-wrapper .menu .label:hover {
+  background: #48576a;
+}
+.slide-wrapper .logo {
+  height: 40px;
+  line-height: 40px;
+  text-align: left;
+  display: block;
+  font-size: 16px;
+}
+.slide-wrapper .logo img {
+  max-height: 30px;
+  vertical-align: middle;
+  margin-left: 13px;
+}

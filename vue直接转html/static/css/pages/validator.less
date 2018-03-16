@@ -1,0 +1,21 @@
+/** 表单验证 */
+.va-field-box {
+  position: relative;
+  .va-required {
+    &:before{
+      content: '*';
+      margin-right: 5px;
+      color: red;
+    }
+  }
+  .va-error {
+    position: absolute;
+    font-size: 12px;
+    line-height: 14px;
+    color: red;
+    left: 105px;
+  }
+  .va-field-error {
+    border: 1px solid red !important;
+  }
+}

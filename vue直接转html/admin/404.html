@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>404</title>
+  <style>
+    .p-404 {
+      background: #fff;
+      height: 100vh;
+      text-align: center;
+      color: #30a5ff;
+    }
+    .title {
+      margin-top: 100px;
+      font-size: 68px;
+      font-weight: bold;
+    }
+    .text {
+      padding: 100px 0;
+    }
+    .fa {
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+<div id="p-404" class="p-404">
+  <div class="text"><span class="title">404</span>页面找不到了~~~</div>
+  <button class="btn btn-sm btn-primary" type="button" onclick="back()">
+    <span class="fa fa-reply"></span>返回上一页
+  </button>
+</div>
+
+<script>
+    function back() {
+        history.go(-2)
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link type="text/css" rel="stylesheet" href="/static/css/main.css">
+ <!--   <link type="text/css" rel="stylesheet" href="/static/plugin/font-awesome/css/font-awesome.min.css">-->
+
+    <!-- 加载Traceur编译器 -->
+    <script src="http://google.github.io/traceur-compiler/bin/traceur.js" type="text/javascript"></script>
+    <script src="https://google.github.io/traceur-compiler/bin/BrowserSystem.js"></script>
+    <script src="https://google.github.io/traceur-compiler/src/bootstrap.js"></script>
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+    <!-- 全局指令 loading -->
+    <script src="/static/js/loading.js"></script>
+    <!-- 全局方法 message -->
+    <script src="/static/js/message.js"></script>
+    <!-- 表单验证 v-va... -->
+    <script src="/static/js/validator.js"></script>
+
+    <!-- 列表类  -->
+    <script src="/model/rsList.js"></script>
+    <script>
+        /**  通用变量（列表类） */
+        window.RsList = RsList
+        /** 全局事件监听 */
+        window.$eventHub = new Vue()
+        /** 通用表单实例（新增tab） */
+        window.$tabForm = {}
+    </script>
+
+    <!-- 分页组件 -->
+    <script src="/components/rs-page.js"></script>
+    <!-- 下拉选择组件 -->
+    <script src="/components/rs-select.js"></script>
+    <!-- 弹窗组件 -->
+    <script src="/components/rs-modal.js"></script>
+    <!-- 树形菜单 -->
+    <script src="/components/rs-tree.js"></script>
+    <!-- 筛选组件 -->
+    <script src="/components/rs-search.js"></script>
+    <!-- 表格组件 -->
+    <script src="/components/rs-list.js"></script>
+    <!-- 通用布局组件 -->
+    <script src="/components/rs-layout.js"></script>
+
+
+
+    <style>
+        /** 组件样式 */
+        .rs-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 100;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .rs-modal .m-content {
+            width: 60%;
+            height: 60%;
+            background: #fff;
+            border-radius: 10px;
+            position: absolute;
+            top: 15%;
+            left: 20%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        .rs-modal .m-close {
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-size: 24px;
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            color: #bbb;
+        }
+        .rs-modal .m-close:hover {
+            color: #20a0ff;
+        }
+        .rs-modal .m-head {
+            border-bottom: 1px solid #dcdfe6;
+            line-height: 30px;
+            text-align: center;
+        }
+        .rs-modal .m-body {
+            flex: 1;
+            overflow: auto;
+        }
+        .rs-modal .m-foot {
+            border-top: 1px solid #dcdfe6;
+            text-align: center;
+        }
+        .rs-modal .m-foot .btn {
+            margin: 10px 10px 0 10px;
+        }
+        .rs-list {
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        .rs-list table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+        .rs-list td,
+        .rs-list th {
+            padding: 0 10px;
+            border: 1px solid #dfe6ec;
+            line-height: 32px;
+        }
+        .rs-list td:first-child,
+        .rs-list th:first-child {
+            width: 40px;
+            text-align: center;
+        }
+        .rs-list th {
+            text-align: left;
+            white-space: nowrap;
+            background: #eef1f6;
+            border-bottom: none;
+        }
+        .rs-list tr:hover {
+            background: #eef1f6;
+        }
+        .rs-list .table-body {
+            max-height: 450px;
+            overflow: auto;
+        }
+        .rs-page {
+            text-align: center;
+            font-size: 12px;
+        }
+        .rs-page .item {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        .rs-page .item:hover,
+        .rs-page .item.active {
+            color: #409EFF;
+        }
+        .rs-page .item.active,
+        .rs-page .item.disabled {
+            cursor: default;
+        }
+        .rs-page .item.disabled {
+            color: #ddd;
+        }
+        .main-header {
+            height: 40px;
+            background: #fff;
+            position: relative;
+        }
+        .main-header .switch {
+            width: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .main-header .right {
+            float: right;
+        }
+        .main-header .item {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 14px;
+            line-height: 40px;
+        }
+        .main-header .exit {
+            background: #1d90e6;
+            height: 30px;
+            width: 30px;
+            color: #fff;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 5px;
+        }
+        .main-header .userLogo {
+            border: 1px solid #d1dbe5;
+            width: 30px;
+            max-height: 30px;
+            border-radius: 50%;
+            vertical-align: middle;
+        }
+        .main-header .downmenu {
+            position: absolute;
+            padding: 0;
+            background: #fff;
+            list-style: none;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+        }
+        .main-header .downmenu:before {
+            content: '';
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            border-style: solid;
+            border-width: 0 4px 4px;
+            border-color: transparent transparent #fff;
+            display: none;
+        }
+        .main-header .downmenu.open:before {
+            display: block;
+        }
+        .main-header .downmenu li {
+            padding: 0 10px;
+            line-height: 30px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all ease-in-out 0.15s;
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .main-header .downmenu li.open {
+            opacity: 1;
+            height: 30px;
+        }
+        .main-header .downmenu a {
+            text-decoration: none;
+            color: #333;
+        }
+        .slide-wrapper {
+            min-height: calc(100vh - 40px);
+            background: #324157;
+        }
+        .slide-wrapper,
+        .slide-wrapper ul {
+            transition: all 0.4s ease-in-out;
+        }
+        .slide-wrapper.open {
+            width: 140px;
+        }
+        .slide-wrapper.close {
+            width: 40px;
+        }
+        .slide-wrapper.close .menu ul {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: #fff;
+            box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.1);
+            color: #2c3e50;
+            z-index: 100;
+            min-width: 140px;
+            display: none;
+        }
+        .slide-wrapper.close .menu ul li:hover > .label {
+            background: #f1f1f1;
+        }
+        .slide-wrapper.close .menu > li > .label > .text {
+            display: none;
+        }
+        .slide-wrapper.close .menu li:hover > ul {
+            display: block;
+        }
+        .slide-wrapper .menu {
+            font-size: 14px;
+            line-height: 32px;
+        }
+        .slide-wrapper .menu,
+        .slide-wrapper .menu a,
+        .slide-wrapper .menu li {
+            color: #bfcbd9;
+            text-decoration: none;
+        }
+        .slide-wrapper .menu li {
+            position: relative;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .slide-wrapper .menu li.open > .label {
+            color: #20a0ff;
+        }
+        .slide-wrapper .menu .label {
+            padding: 0 10px;
+        }
+        .slide-wrapper .menu .label:hover {
+            background: #48576a;
+        }
+        .slide-wrapper .logo {
+            height: 40px;
+            line-height: 40px;
+            text-align: left;
+            display: block;
+            font-size: 16px;
+        }
+        .slide-wrapper .logo img {
+            max-height: 30px;
+            vertical-align: middle;
+            margin-left: 13px;
+        }
+        .rs-select {
+            position: relative;
+        }
+        .rs-select .down {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            border: 1px solid #dcdfe6;
+            min-width: 100%;
+            list-style: none;
+            margin-top: 2px;
+            background: #fff;
+        }
+        .rs-select .down li {
+            padding: 0 10px;
+            cursor: pointer;
+        }
+        .rs-select .down li:not(:last-child) {
+            border-bottom: 1px solid #dcdfe6;
+        }
+        .rs-select .down li:hover {
+            background: #dcdfe6;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            transition: all 0.4s ease-in-out;
+            color: #fff;
+            font-size: 14px;
+        }
+        li {
+            cursor: pointer;
+        }
+        .p-tab {
+            padding: 20px;
+            background: #fff;
+        }
+        .p-tab .p-header {
+            line-height: 32px;
+            font-size: 14px;
+            border-bottom: 1px solid #d1dbe5;
+            margin: 0 0 20px 0;
+        }
+        .p-tab .p-header .rs-select input[type="text"] {
+            margin-top: 4px;
+        }
+        .p-tab .p-header .t-title {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #8391a5;
+            display: inline-block;
+        }
+        .p-tab .p-header .t-title li {
+            display: inline-block;
+            padding: 0 12px;
+            cursor: pointer;
+        }
+        .p-tab .p-header .t-title li:hover {
+            color: #20a0ff;
+        }
+        .p-tab .p-header .t-title li .text {
+            padding: 0 12px;
+            margin: 0 -12px;
+            display: inline-block;
+        }
+        .p-tab .p-header .t-title li .close {
+            margin-right: -12px;
+            padding-right: 5px;
+            font-size: 19px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .p-tab .p-header .t-title .active {
+            color: #20a0ff;
+            border-bottom: 3px solid #20a0ff;
+        }
+        .p-tab .p-header .export,
+        .p-tab .p-header .lang {
+            float: right;
+        }
+        .p-tab .p-header .export {
+            text-align: center;
+            font-size: 12px;
+            cursor: pointer;
+            line-height: 17px;
+            margin: 5px 0 0 10px;
+        }
+        .p-tab .p-header .export .fa {
+            font-size: 18px;
+        }
+        .p-tab .btns {
+            padding-left: 100px;
+        }
+        .p-tab .btns .btn {
+            margin: 20px 10px 0 0;
+        }
+        .p-tab .tab-form .form-item {
+            margin-bottom: 8px;
+            line-height: 30px;
+        }
+        .p-tab .tab-form .form-item input[type=text] {
+            width: 360px;
+            height: 30px;
+        }
+        .p-tab .tab-form .form-item .va-error {
+            left: 500px;
+            top: 10px;
+        }
+        .p-tab .tab-form .label {
+            width: 100px;
+        }
+        /** 页面样式 */
+        /** 表单 */
+        .form-item {
+            line-height: 26px;
+        }
+        .form-item .label {
+            display: inline-block;
+            font-size: 14px;
+            color: #606266;
+            text-align: right;
+            padding: 0 10px;
+        }
+        .form-item input[type=text] {
+            border: 1px solid #dcdfe6;
+            height: 26px;
+            padding: 0 5px;
+            border-radius: 3px;
+        }
+        .form-item input[type=text]:focus {
+            outline: none;
+            border: 1px solid #20a0ff;
+        }
+        .btn {
+            border: 1px solid #dcdfe6;
+            background: transparent;
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn:focus {
+            outline: none;
+        }
+        .btn.btn-sm {
+            font-size: 12px;
+            padding: 3px 6px;
+        }
+        .btn.btn-primary {
+            background: #20a0ff;
+            border-color: #20a0ff;
+            color: #fff;
+        }
+        .btn.btn-primary:hover {
+            background: #53b6ff;
+            border-color: #53b6ff;
+        }
+        .btn.btn-text {
+            background: transparent;
+            border: none;
+            color: #20a0ff;
+        }
+        .btn.btn-text:hover {
+            color: #53b6ff;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        *,
+        *:after,
+        *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+        .clearfix:after {
+            display: table;
+            clear: both;
+            content: '';
+        }
+        .t-tab {
+            border: 1px solid #d1dbe5;
+        }
+        .t-tab .t-tab-title {
+            line-height: 38px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: #8391a5;
+            font-size: 14px;
+            border-bottom: 1px solid #d1dbe5;
+            background: #eef1f6;
+        }
+        .t-tab .t-tab-title li {
+            display: inline-block;
+            padding: 0 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .t-tab .t-tab-title li:hover {
+            color: #20a0ff;
+        }
+        .t-tab .t-tab-title li.active {
+            color: #20a0ff;
+            border-right: 1px solid #d1dbe5;
+            background: #fff;
+            position: relative;
+        }
+        .t-tab .t-tab-title li.active:not(:first-child) {
+            border-left: 1px solid #d1dbe5;
+        }
+        .t-tab .t-tab-title li.active:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background: #ffffff;
+            bottom: -2px;
+            left: 0;
+        }
+        /** 表单验证 */
+        .va-field-box {
+            position: relative;
+        }
+        .va-field-box .va-required:before {
+            content: '*';
+            margin-right: 5px;
+            color: red;
+        }
+        .va-field-box .va-error {
+            position: absolute;
+            font-size: 12px;
+            line-height: 14px;
+            color: red;
+            left: 105px;
+        }
+        .va-field-box .va-field-error {
+            border: 1px solid red !important;
+        }
+        .rs-message {
+            position: fixed;
+            z-index: 1000;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 0 30px 0 50px;
+            line-height: 40px;
+            min-width: 300px;
+            box-shadow: 1px 5px 2px rgba(0, 0, 0, 0.2);
+            animation: moveTip .3s 1;
+            -webkit-animation: moveTip .3s 1;
+            /* Safari 和 Chrome */
+        }
+        .rs-message:before {
+            width: 40px;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            text-align: center;
+            color: #fff;
+        }
+        .rs-message.success {
+            color: #67c23a;
+            background: #f0f9eb;
+        }
+        .rs-message.success:before {
+            content: '✓';
+            background: #3ac245;
+        }
+        .rs-message.error {
+            color: #f56c6c;
+            background: #fef0f0;
+        }
+        .rs-message.error:before {
+            content: '✖';
+            background: #f9323b;
+        }
+        @keyframes moveTip {
+            from {
+                top: 0;
+            }
+            to {
+                top: 30px;
+            }
+        }
+        @-moz-keyframes moveTip {
+            /* Firefox */
+            from {
+                top: 0;
+            }
+            to {
+                top: 30px;
+            }
+        }
+        @-webkit-keyframes moveTip {
+            /* Safari 和 Chrome */
+            from {
+                top: 0;
+            }
+            to {
+                top: 30px;
+            }
+        }
+        @-o-keyframes moveTip {
+            /* Opera */
+            from {
+                top: 0;
+            }
+            to {
+                top: 30px;
+            }
+        }
+        .rs-loading {
+            position: relative;
+        }
+        .rs-loading .loading {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5000;
+            background: rgba(255, 255, 255, 0.9);
+            color: #20a0ff;
+            text-align: center;
+            display: none;
+        }
+        .rs-loading .loading.open {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .rs-loading .icon-load {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border: 2px solid #20a0ff;
+            border-top-color: transparent;
+            margin: 5px auto;
+            border-radius: 50%;
+            animation: circle 1s infinite;
+        }
+        @keyframes circle {
+            0% {
+                transform: rotate(0);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+
+
+    <style>
+        body {
+            display: flex;
+            color: #2c3e50;
+            background-color: #ecf0f5;
+            padding-top: 50px;
+        }
+        .slide-wrapper {
+            margin-top: -10px;
+        }
+        .main-header {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            z-index: 100;
+        }
+        .main-content {
+            flex: 1;
+            margin: 10px;
+            background: #fff;
+            height: 100vh;
+        }
+    </style>
+
+</head>
+<body>
+<header id="main-header" class="main-header">
+    <a href="#" class="logo">
+        <img :src="logo_lg" />
+    </a>
+
+    <span class="switch item fa fa-bars" @click="toggleMenu()">开关</span>
+
+    <div class="right">
+        <img class="userLogo" :src="userLogo" @click="showdown = !showdown">
+        <span class="item">{{ username }}</span>
+        <a class="exit item" :href="loginout"><i class="fa fa-power-off"></i></a>
+        <ul v-show="has_password_right" class="downmenu" :class="`downmenu ${showdown ? 'open' : ''}`">
+            <li @click="showdown=false" :class="{'open': showdown}"><a :href="updatepwdurl">修改登录密码</a></li>
+        </ul>
+    </div>
+</header>
+
+<aside id="main-aside" class="slide-wrapper" :class="isCollapse ? 'close' : 'open'">
+    <rs-tree class="menu" :list="menu" :prop="{label: 'name', child: 'child'}" :visible="isCollapse" :active="active"></rs-tree>
+</aside>
+
+
+<script>
+    new Vue({
+        el: '#main-header',
+        data () {
+            return {
+                logo_lg: '',
+                logo_mini: '',
+                has_password_right: false,                         //  修改密码的权限
+                showdown: false,
+                username: localStorage.getItem('admin_username') || '',
+                userLogo: `/static/img/profile.jpg`,
+                updatepwdurl: '',
+                loginout: ''
+            }
+        },
+        mounted () {
+            /** 判断是否有修改个人密码的权限 */
+            let rights = localStorage.getItem('admin_rights_list')
+            if(rights) rights = JSON.parse(rights)
+            this.has_password_right = rights && rights.user && rights.user[`v1,user,admin,updatepwd,put`]
+        },
+        methods: {
+            toggleMenu() {
+                window.$eventHub.$emit('switch-aside')
+            }
+        }
+    })
+</script>
+
+<script src="/network/menu.js"></script>
+<script>
+    new Vue({
+        el: '#main-aside',
+        data () {
+            return {
+                active: [],
+                menu: window.RsAsideMenu,
+                isCollapse: false                                   //  展开或收缩左侧菜单
+            }
+        },
+        mounted () {
+            /** 监听左侧栏展开或收缩事件 */
+            window.$eventHub.$on('switch-aside', () => {
+                this.isCollapse = !this.isCollapse
+            })
+            /** 监听菜单点击事件 */
+            this.$on('click-tree-menu', (res) => {
+                if(res.data.path) this.$router.push(res.data.path)
+            })
+
+            /** 页面载入，查询当前应当激活的菜单 */
+            this.$nextTick(() => {
+                setTimeout(() => {
+                    this.init()
+                }, 2000)
+            })
+        },
+        methods: {
+            /** 设置激活菜单 */
+            init () {
+                let path = '/exchange/watch/list'
+
+                let setOne = (list, level) => {
+                    for(let k in list) {
+                        if(list[k].path === path) {
+                            this.active.splice(level, 1, k)
+                            break;
+                        }else if(list[k].child && list[k].child.length) {
+                            this.active.splice(level, 1, k)
+                            setOne(list[k].child, level+1)
+                        }
+                    }
+                }
+
+                setOne(this.menu, 0)
+            }
+        }
+    })
+</script>
+
+

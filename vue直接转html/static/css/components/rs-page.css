@@ -1,0 +1,23 @@
+.rs-page {
+  text-align: center;
+  font-size: 12px;
+}
+.rs-page .item {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  margin: 0 5px;
+}
+.rs-page .item:hover,
+.rs-page .item.active {
+  color: #409EFF;
+}
+.rs-page .item.active,
+.rs-page .item.disabled {
+  cursor: default;
+}
+.rs-page .item.disabled {
+  color: #ddd;
+}

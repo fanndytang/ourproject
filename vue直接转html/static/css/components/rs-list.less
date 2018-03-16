@@ -1,0 +1,33 @@
+.rs-list {
+  margin: 20px 0;
+  font-size: 14px;
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+  td, th {
+    padding: 0 10px;
+    border: 1px solid #dfe6ec;
+    line-height: 32px;
+    &:first-child {
+      width: 40px;
+      text-align: center;
+    }
+  }
+  th {
+    text-align: left;
+    white-space: nowrap;
+    background: #eef1f6;
+    border-bottom: none;
+  }
+  tr {
+    &:hover {
+      background: #eef1f6;
+    }
+  }
+  .table-body {
+    max-height: 450px;
+    overflow: auto;
+  }
+}

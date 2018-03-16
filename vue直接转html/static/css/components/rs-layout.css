@@ -1,0 +1,79 @@
+.p-tab {
+  padding: 20px;
+  background: #fff;
+}
+.p-tab .p-header {
+  line-height: 32px;
+  font-size: 14px;
+  border-bottom: 1px solid #d1dbe5;
+  margin: 0 0 20px 0;
+}
+.p-tab .p-header .rs-select input[type="text"] {
+  margin-top: 4px;
+}
+.p-tab .p-header .t-title {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #8391a5;
+  display: inline-block;
+}
+.p-tab .p-header .t-title li {
+  display: inline-block;
+  padding: 0 12px;
+  cursor: pointer;
+}
+.p-tab .p-header .t-title li:hover {
+  color: #20a0ff;
+}
+.p-tab .p-header .t-title li .text {
+  padding: 0 12px;
+  margin: 0 -12px;
+  display: inline-block;
+}
+.p-tab .p-header .t-title li .close {
+  margin-right: -12px;
+  padding-right: 5px;
+  font-size: 19px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.p-tab .p-header .t-title .active {
+  color: #20a0ff;
+  border-bottom: 3px solid #20a0ff;
+}
+.p-tab .p-header .export,
+.p-tab .p-header .lang {
+  float: right;
+}
+.p-tab .p-header .export {
+  text-align: center;
+  font-size: 12px;
+  cursor: pointer;
+  line-height: 17px;
+  margin: 5px 0 0 10px;
+}
+.p-tab .p-header .export .fa {
+  font-size: 18px;
+}
+.p-tab .btns {
+  padding-left: 100px;
+}
+.p-tab .btns .btn {
+  margin: 20px 10px 0 0;
+}
+.p-tab .tab-form .form-item {
+  margin-bottom: 8px;
+  line-height: 30px;
+}
+.p-tab .tab-form .form-item input[type=text] {
+  width: 360px;
+  height: 30px;
+}
+.p-tab .tab-form .form-item .va-error {
+  left: 500px;
+  top: 10px;
+}
+.p-tab .tab-form .label {
+  width: 100px;
+}

@@ -23,27 +23,11 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8081,
+    port: 8082,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-    /*  '/v1/admin/excel': {
-        target: 'http://192.168.10.103:8004',
-        changeOrigin: true
-      },
-      '/v1/admin/friends/!*': {
-        target: 'http://192.168.10.103:8004',
-        changeOrigin: true
-      },
-      '/v1/admin/system/!*': {
-        target: 'http://192.168.10.103:8003',
-        changeOrigin: true
-      },
-      '/v1/admin/user/userlike' : {
-        target: 'http://192.168.10.103:8002',
-        changeOrigin: true
-      },*/
       '/test': {
         target: 'http://192.168.10.105:8888',
         changeOrigin: true

@@ -1,0 +1,23 @@
+.rs-select {
+  position: relative;
+}
+.rs-select .down {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  border: 1px solid #dcdfe6;
+  min-width: 100%;
+  list-style: none;
+  margin-top: 2px;
+  background: #fff;
+}
+.rs-select .down li {
+  padding: 0 10px;
+  cursor: pointer;
+}
+.rs-select .down li:not(:last-child) {
+  border-bottom: 1px solid #dcdfe6;
+}
+.rs-select .down li:hover {
+  background: #dcdfe6;
+}

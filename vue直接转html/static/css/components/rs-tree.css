@@ -1,0 +1,11 @@
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  transition: all 0.4s ease-in-out;
+  color: #fff;
+  font-size: 14px;
+}
+li {
+  cursor: pointer;
+}
